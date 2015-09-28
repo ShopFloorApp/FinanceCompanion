@@ -3,5 +3,11 @@
                    version="1.0" name="FinanceCompanion" id="com.company.FinanceCompanion"
                    appControllerFolder="FCApplicationController"
                    listener-class="com.fincomp.application.LifeCycleListenerImpl">
-  <adfmf:featureReference refId="Sync" id="fr1"/>
+  <adfmf:featureReference refId="Sync" id="fr1" loginConnRefId="FinanceComp"/>
+  <adfmf:navigation>
+    <adfmf:navigationBar enabled="false"/>
+    <adfmf:springboard enabled="true" showSpringboardAtStartup="false" displayGotoSpringboardControl="false"
+                       width="200"/>
+  </adfmf:navigation>
+  <adfmf:login defaultConnRefId="FinanceComp"/>
 </adfmf:application>
