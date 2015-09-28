@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.23.11" id="SyncPGPageDef" Package="sync">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="SyncPreferencesDC" id="SyncPreferencesDCIterator"/>
+    <accessorIterator MasterBinding="SyncPreferencesDCIterator" Binds="syncLovs" RangeSize="25"
+                      DataControl="SyncPreferencesDC" BeanClass="com.fincomp.mobile.pojo.sync.SyncPreferencesBO"
+                      id="syncLovsIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="syncLovsIterator" id="syncLovs">
+      <nodeDefinition DefName="com.fincomp.mobile.pojo.sync.SyncPreferencesBO" Name="syncLovs0">
+        <AttrNames>
+          <Item Value="lovClassName"/>
+          <Item Value="lastSyncDateTime"/>
+          <Item Value="lovCollectVar"/>
+          <Item Value="lovDescription"/>
+          <Item Value="lovId"/>
+          <Item Value="lovName"/>
+          <Item Value="rowIdx"/>
+          <Item Value="syncCount"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="syncAll" RequiresUpdateModel="true" Action="invokeMethod" MethodName="syncAll"
+                  IsViewObjectMethod="false" DataControl="SyncPreferencesDC"
+                  InstanceName="data.SyncPreferencesDC.dataProvider"/>
+    <methodAction id="syncCard" RequiresUpdateModel="true" Action="invokeMethod" MethodName="syncCard"
+                  IsViewObjectMethod="false" DataControl="SyncPreferencesDC"
+                  InstanceName="data.SyncPreferencesDC.dataProvider">
+      <NamedData NDName="lovId" NDValue="#{viewScope.lovId}" NDType="java.lang.String"/>
+      <NamedData NDName="lovDCClass" NDValue="#{viewScope.lovDCClass}" NDType="java.lang.String"/>
+      <NamedData NDName="lovCollectionVar" NDValue="#{viewScope.lovCollectionVar}" NDType="java.lang.String"/>
+      <NamedData NDName="rowIdx" NDValue="#{viewScope.lovRowIdx}" NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.1.3.23.11" id="DataBindings"
+             SeparateXMLFiles="false" Package="com.fincomp.mobile" ClientType="Generic">
+  <pageMap>
+    <page path="/sync/SyncPG.amx" usageId="com_fincomp_mobile_SyncPGPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="com_fincomp_mobile_SyncPGPageDef" path="sync.SyncPGPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="SyncPreferencesDC" path="com.fincomp.mobile.SyncPreferencesDC"/>
+  </dataControlUsages>
+</Application>
