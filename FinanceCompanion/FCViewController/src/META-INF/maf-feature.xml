@@ -1,2 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<adfmf:features xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adfmf="http://xmlns.oracle.com/adf/mf"></adfmf:features>
+<adfmf:features xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adfmf="http://xmlns.oracle.com/adf/mf">
+  <adfmf:feature id="Sync" name="Sync">
+    <adfmf:content id="Sync.1">
+      <adfmf:amx file="Sync/SyncPG.amx"/>
+    </adfmf:content>
+  </adfmf:feature>
+</adfmf:features>

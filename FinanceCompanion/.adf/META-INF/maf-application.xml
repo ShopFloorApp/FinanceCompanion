@@ -2,4 +2,6 @@
 <adfmf:application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adfmf="http://xmlns.oracle.com/adf/mf"
                    version="1.0" name="FinanceCompanion" id="com.company.FinanceCompanion"
                    appControllerFolder="FCApplicationController"
-                   listener-class="com.fincomp.application.LifeCycleListenerImpl"></adfmf:application>
+                   listener-class="com.fincomp.application.LifeCycleListenerImpl">
+  <adfmf:featureReference refId="Sync" id="fr1"/>
+</adfmf:application>
