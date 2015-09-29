@@ -8,17 +8,12 @@
           <amx:cellFormat id="cf3" width="10px" halign="center" valign="middle"/>
           <amx:cellFormat id="cf1" halign="center" valign="bottom" width="20px">
             <amx:commandLink 
-                        id="cl3" >
-              <amx:outputHtml id="oh2" styleClass="fa fa-bars fa-lg"/>
-            </amx:commandLink>
+                        id="cl3" actionListener="#{bindings.gotoSpringboard.execute}">
+              <amx:outputHtml id="oh2" styleClass="fa fa-bars fa-lg"/>            </amx:commandLink>
           </amx:cellFormat>
-          <amx:cellFormat id="cf2" valign="middle" width="100%" halign="center">
-            <amx:panelGroupLayout id="pgl8" layout="vertical" halign="center" valign="baseline">
-              <amx:panelGroupLayout id="pgl2" >
-                <amx:outputText value="Sync Data" id="ot1"/>
-              </amx:panelGroupLayout>
-            </amx:panelGroupLayout>
-          </amx:cellFormat>
+          <amx:cellFormat id="cf2" valign="bottom" width="80%" halign="center">
+                        <amx:outputText value="Sync Data" id="ot1"/>
+                    </amx:cellFormat>
         </amx:rowLayout>
       </amx:tableLayout>
     </amx:facet>
@@ -32,67 +27,60 @@
                               selectionListener="#{bindings.syncLovs.collectionModel.makeCurrent}"
                               showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv16" layout="cards"
                               halign="center" styleClass="swipelistview">
-                    <amx:listItem id="li16" styleClass="swipelistitem">
+                    <amx:listItem id="li16" styleClass="swipelistitem" showLinkIcon="false">
                         <amx:panelGroupLayout id="pgl1" styleClass="front">
                             <amx:tableLayout id="tl17" width="100%"
-                                             inlineStyle="height: 50px; position: relative; padding: 10px;">
+                                             inlineStyle="height: 100px; position: relative; padding: 10px;">
                                 <amx:rowLayout id="rl39">
-                                    <amx:cellFormat id="cf62" width="100%">
-                                        <amx:panelGroupLayout id="pgl7" layout="horizontal">
+                                    <amx:cellFormat id="cf5" height="10px"/>
+                                    <amx:cellFormat id="cf62" width="80%">
+                                        
                                             <amx:outputText value="#{row.lovName}" id="ot38"
-                                                            inlineStyle="font-weight:lighter;width: 190px;"/>
-                                            <amx:spacer id="s2" width="20"/>
-                                            <amx:commandButton text="Sync" id="cb4" styleClass="btncardlyt"
-                                                               inlineStyle="font-family:Helvetica;"
-                                                               actionListener="#{bindings.syncCard.execute}">
-                                                <amx:setPropertyListener id="spl3" from="#{row.lovId}"
-                                                                         to="#{viewScope.lovId}"/>
-                                                <amx:setPropertyListener id="spl4" from="#{row.lovClassName}"
-                                                                         to="#{viewScope.lovDCClass}"/>
-                                                <amx:setPropertyListener id="spl5" to="#{viewScope.lovCollectionVar}"
-                                                                         from="#{row.lovCollectVar}"/>
-                                                <amx:setPropertyListener id="spl6" to="#{viewScope.lovRowIdx}"
-                                                                         from="#{row.rowIdx}"/>
-                                            </amx:commandButton>
-                                        </amx:panelGroupLayout>
+                                                            inlineStyle="font-weight:lighter;"/>
+                                      
+                                    </amx:cellFormat>
+                                    <amx:cellFormat id="cf4" width="20%" halign="end">
+                                        <amx:commandButton text="Sync" id="cb4" styleClass="btncardlyt"
+                                                           inlineStyle="font-family:Helvetica;"
+                                                           actionListener="#{bindings.syncCard.execute}">
+                                            <amx:setPropertyListener id="spl3" from="#{row.lovId}"
+                                                                     to="#{viewScope.lovId}"/>
+                                            <amx:setPropertyListener id="spl4" from="#{row.lovClassName}"
+                                                                     to="#{viewScope.lovDCClass}"/>
+                                            <amx:setPropertyListener id="spl5" to="#{viewScope.lovCollectionVar}"
+                                                                     from="#{row.lovCollectVar}"/>
+                                            <amx:setPropertyListener id="spl6" to="#{viewScope.lovRowIdx}"
+                                                                     from="#{row.rowIdx}"/>
+                                        </amx:commandButton>
                                     </amx:cellFormat>
                                 </amx:rowLayout>
                                 <amx:rowLayout id="rl38">
-                                    <amx:cellFormat id="cf61" inlineStyle="border: 1px solid #D6C9C9;"/>
+                                    <amx:cellFormat id="cf61" inlineStyle="border: 1px solid #D6C9C9;" width="100%"
+                                                    columnSpan="3"/>
                                 </amx:rowLayout>
                                 <amx:rowLayout id="rl35">
-                                    <amx:cellFormat id="cf53" height="28px">
-                                        <amx:panelGroupLayout id="pgl6" layout="horizontal">
-                                            <amx:panelGroupLayout id="pgl4" layout="vertical" valign="middle"
-                                                                  halign="center"
-                                                                  inlineStyle="width: 100px; margin-top: 10px;">
-                                                <amx:outputText value="#{row.syncCount}" id="ot33"
-                                                                inlineStyle="color: rgb(86, 165, 7); font-size: x-large;"
-                                                                styleClass="synccount"/>
-                                                <amx:outputText id="ot35" value="Count"
-                                                                inlineStyle="color: darkgrey; font-size: smaller;"/>
-                                            </amx:panelGroupLayout>
-                                            <amx:spacer id="s1" width="20"/>
-                                            <amx:panelGroupLayout id="pgl5" layout="vertical" valign="middle"
-                                                                  halign="center"
-                                                                  inlineStyle="width: 150px; margin-top: 10px;">
-                                                <amx:outputText value="#{row.lastSyncDateTime}" id="ot36"
-                                                                inlineStyle="font-size: x-large; color: chocolate;"
-                                                                styleClass="syncdate"/>
-                                                <amx:outputText id="ot37" value="Last Sync Date"
-                                                                inlineStyle="color: darkgrey; font-size: smaller;"/>
-                                            </amx:panelGroupLayout>
+                                    <amx:cellFormat id="cf6" width="10px"/>
+                                    <amx:cellFormat id="cf53" height="28px" width="45%">
+                                        <amx:panelGroupLayout id="pgl5" layout="vertical" valign="middle"
+                                                              halign="center"
+                                                              inlineStyle="margin-top: 10px;">
+                                            <amx:outputText value="#{row.lastSyncDateTime}" id="ot36"
+                                                            inlineStyle="font-size: x-large; color: chocolate;"
+                                                            styleClass="syncdate"/>
+                                            <amx:outputText id="ot37" value="Last Sync Date"
+                                                            inlineStyle="color: darkgrey; font-size: smaller;"/>
                                         </amx:panelGroupLayout>
                                     </amx:cellFormat>
-                                </amx:rowLayout>
-                                <amx:rowLayout id="rl37" rendered="false">
-                                    <amx:cellFormat id="cf59" width="100%" height="12px" halign="end">
-                                        <amx:commandLink id="cl1" actionListener="#{jsMBean.flipCardBack}">
-                                            <amx:image id="i2" source="/images/flipback.png"
-                                                       inlineStyle="height: 25px;"/>
-                                            <amx:setPropertyListener id="spl1" to="#{pageFlowScope.deckName}"
-                                                                     from="#{row.rowIdx}"/>
-                                        </amx:commandLink>
+                                    <amx:cellFormat id="cf7" width="45%">
+                                        <amx:panelGroupLayout id="pgl4" layout="vertical" valign="middle"
+                                                              halign="center"
+                                                              inlineStyle=" margin-top: 10px;">
+                                            <amx:outputText value="#{row.syncCount}" id="ot33"
+                                                            inlineStyle="color: rgb(86, 165, 7); font-size: x-large;"
+                                                            styleClass="synccount"/>
+                                            <amx:outputText id="ot35" value="Count"
+                                                            inlineStyle="color: darkgrey; font-size: smaller;"/>
+                                        </amx:panelGroupLayout>
                                     </amx:cellFormat>
                                 </amx:rowLayout>
                             </amx:tableLayout>
@@ -130,13 +118,5 @@
                 </amx:listView>
             </amx:panelGroupLayout>
         </amx:panelGroupLayout>
-    <amx:listView var="row" value="#{bindings.syncLovs.collectionModel}" fetchSize="#{bindings.syncLovs.rangeSize}"
-                  selectedRowKeys="#{bindings.syncLovs.collectionModel.selectedRow}"
-                  selectionListener="#{bindings.syncLovs.collectionModel.makeCurrent}" showMoreStrategy="autoScroll"
-                  bufferStrategy="viewport" id="lv1" rendered="false">
-      <amx:listItem id="li1">
-        <amx:outputText value="#{row.lovClassName}" id="ot2"/>
-      </amx:listItem>
-    </amx:listView>
   </amx:panelPage>
 </amx:view>

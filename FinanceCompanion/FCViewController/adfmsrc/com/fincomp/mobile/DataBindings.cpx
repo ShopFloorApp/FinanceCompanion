@@ -8,6 +8,7 @@
     <page id="com_fincomp_mobile_SyncPGPageDef" path="sync.SyncPGPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
+    <dc id="ApplicationFeatures" path="com.fincomp.application.ApplicationFeatures"/>
     <dc id="SyncPreferencesDC" path="com.fincomp.mobile.SyncPreferencesDC"/>
   </dataControlUsages>
 </Application>

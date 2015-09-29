@@ -34,5 +34,8 @@
       <NamedData NDName="lovCollectionVar" NDValue="#{viewScope.lovCollectionVar}" NDType="java.lang.String"/>
       <NamedData NDName="rowIdx" NDValue="#{viewScope.lovRowIdx}" NDType="java.lang.String"/>
     </methodAction>
+    <methodAction id="gotoSpringboard" RequiresUpdateModel="true" Action="invokeMethod" MethodName="gotoSpringboard"
+                  IsViewObjectMethod="false" DataControl="ApplicationFeatures"
+                  InstanceName="data.ApplicationFeatures.dataProvider"/>
   </bindings>
 </pageDefinition>
