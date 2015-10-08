@@ -145,4 +145,7 @@
 .amx-panelPage-header-appIcon{
     display:none;
 }
+.amx-panelPage-header{
+    background-color: darkblue;
+}
 

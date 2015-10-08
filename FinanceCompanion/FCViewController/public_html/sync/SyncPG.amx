@@ -9,10 +9,10 @@
           <amx:cellFormat id="cf1" halign="center" valign="bottom" width="20px">
             <amx:commandLink 
                         id="cl3" actionListener="#{bindings.gotoSpringboard.execute}">
-              <amx:outputHtml id="oh2" styleClass="fa fa-bars fa-lg"/>            </amx:commandLink>
+              <amx:outputHtml id="oh2" styleClass="fa fa-bars fa-lg" inlineStyle="color: white;"/>            </amx:commandLink>
           </amx:cellFormat>
           <amx:cellFormat id="cf2" valign="bottom" width="80%" halign="center">
-                        <amx:outputText value="Sync Data" id="ot1"/>
+                        <amx:outputText value="Sync Data" id="ot1" inlineStyle="color: white; font-weight: bold;"/>
                     </amx:cellFormat>
         </amx:rowLayout>
       </amx:tableLayout>
