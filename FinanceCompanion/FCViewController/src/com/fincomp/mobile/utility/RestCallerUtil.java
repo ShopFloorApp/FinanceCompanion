@@ -51,7 +51,7 @@ public class RestCallerUtil {
         
         RestServiceAdapter restServiceAdapter = Model.createRestServiceAdapter();
         restServiceAdapter.clearRequestProperties();
-        restServiceAdapter.setConnectionName("Rest");
+        restServiceAdapter.setConnectionName("DCOMFINAPP");
         
         //set GET, POST, DELETE, PUT
         restServiceAdapter.setRequestType(httpMethod);

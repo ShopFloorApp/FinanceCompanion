@@ -24,4 +24,21 @@
       </XmlRefAddr>
     </RefAddresses>
   </Reference>
+  <Reference name="DCOMFINAPP" className="oracle.adf.model.connection.rest.RestConnection"
+             credentialStoreKey="DCOMFINAPP" xmlns="">
+    <Factory className="oracle.adf.model.connection.rest.RestConnectionFactory"/>
+    <RefAddresses>
+      <XmlRefAddr addrType="DCOMFINAPP">
+        <Contents>
+          <restconnection name="DCOMFINAPP" url="http://ussltcovm016.solutions.glbsnet.com:8000/">
+            <authentication style="challenge">
+              <type>basic</type>
+            </authentication>
+          </restconnection>
+        </Contents>
+      </XmlRefAddr>
+      <SecureRefAddr addrType="username"/>
+      <SecureRefAddr addrType="password"/>
+    </RefAddresses>
+  </Reference>
 </References>
