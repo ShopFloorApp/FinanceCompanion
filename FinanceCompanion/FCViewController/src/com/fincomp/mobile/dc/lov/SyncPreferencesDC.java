@@ -1,4 +1,4 @@
-package com.fincomp.mobile.dc.sync;
+package com.fincomp.mobile.dc.lov;
 
 import com.fincomp.application.database.ConnectionFactory;
 import com.fincomp.mobile.pojo.sync.SyncPreferencesBO;
@@ -113,7 +113,7 @@ public class SyncPreferencesDC extends SyncUtils {
             AdfmfContainerUtilities.invokeContainerJavaScriptFunction(featureID, "deactivateCardLayout", new Object[] {
                                                                       i });
 
-            Class lovClass = Class.forName("com.fincom.mobile.dc.lov." + lovDCClass);
+            Class lovClass = Class.forName("com.fincomp.mobile.dc.lov." + lovDCClass);
             Object obj = lovClass.newInstance();
             Method method = lovClass.getMethod("syncLocalDB", new Class[] { });
             method.invoke(obj, new Object[] { });
