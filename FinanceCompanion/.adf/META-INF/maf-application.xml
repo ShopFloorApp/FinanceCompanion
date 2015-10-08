@@ -4,6 +4,7 @@
                    appControllerFolder="FCApplicationController"
                    listener-class="com.fincomp.application.LifeCycleListenerImpl">
   <adfmf:featureReference refId="Sync" id="fr1" loginConnRefId="FinanceComp"/>
+  <adfmf:featureReference refId="dashboard" id="fr2"/>
   <adfmf:navigation>
     <adfmf:navigationBar enabled="false"/>
     <adfmf:springboard enabled="true" showSpringboardAtStartup="false" displayGotoSpringboardControl="false"

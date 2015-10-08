@@ -9,4 +9,9 @@
       </adfmf:amx>
     </adfmf:content>
   </adfmf:feature>
+  <adfmf:feature id="dashboard" name="dashboard">
+    <adfmf:content id="dashboard.1">
+      <adfmf:amx file="dashboard/dashboardTF.xml#dashboardTF"/>
+    </adfmf:content>
+  </adfmf:feature>
 </adfmf:features>
