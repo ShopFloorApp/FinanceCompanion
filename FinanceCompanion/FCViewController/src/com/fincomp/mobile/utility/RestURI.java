@@ -22,5 +22,9 @@ public class RestURI {
     public static String GetFABookURI() {
         return GET_FABOOK_URI;
     }
+    private static final String GET_INVORG_URI = "/webservices/rest/DCOMFINLOV/getinvorg/";
+    public static String GetInvOrgURI() {
+        return GET_INVORG_URI;
+    }
 
 }
