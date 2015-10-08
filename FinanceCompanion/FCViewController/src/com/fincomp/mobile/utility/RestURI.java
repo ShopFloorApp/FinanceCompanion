@@ -17,5 +17,10 @@ public class RestURI {
     public static String GetEntityURI() {
         return GET_ENTITY_URI;
     }
+    
+    private static final String GET_FABOOK_URI = "/webservices/rest/DCOMFINLOV/getfabook/";
+    public static String GetFABookURI() {
+        return GET_FABOOK_URI;
+    }
 
 }
