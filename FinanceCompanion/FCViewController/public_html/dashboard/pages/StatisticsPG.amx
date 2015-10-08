@@ -2,14 +2,26 @@
 <amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
           xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
   <amx:panelPage id="pp1">
-    <amx:facet name="header">
-      <amx:outputText value="Header" id="ot1"/>
-    </amx:facet>
-    <amx:facet name="primary">
-      <amx:commandButton id="cb1"/>
-    </amx:facet>
-    <amx:facet name="secondary">
-      <amx:commandButton id="cb2"/>
+        <amx:facet name="header">
+            <amx:tableLayout id="tl1" width="100%">
+        <amx:rowLayout id="rl1">
+          <amx:cellFormat id="cf3" width="10px" halign="center" valign="middle"/>
+          <amx:cellFormat id="cf1" halign="center" valign="bottom" width="20px">
+            <amx:commandLink 
+                        id="cl3" actionListener="#{bindings.gotoSpringboard.execute}">
+              <amx:outputHtml id="oh2" styleClass="fa fa-bars fa-lg"/>            </amx:commandLink>
+          </amx:cellFormat>
+          <amx:cellFormat id="cf2" valign="bottom" width="70%" halign="center">
+                        <amx:outputText value="Summary" id="ot1"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf4" halign="end" valign="bottom" width="30%">
+            <amx:commandLink 
+                        id="cl1" actionListener="#{bindings.gotoSpringboard.execute}">
+              <amx:outputHtml id="oh1" value="#{pageFlowScope.currentPeriod}" inlineStyle="font-size:small;"/>            </amx:commandLink>
+          </amx:cellFormat>
+          <amx:cellFormat id="cf5" width="10px" halign="center" valign="middle"/>
+        </amx:rowLayout>
+      </amx:tableLayout>
     </amx:facet>
   </amx:panelPage>
 </amx:view>

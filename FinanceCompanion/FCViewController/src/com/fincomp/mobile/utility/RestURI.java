@@ -26,5 +26,9 @@ public class RestURI {
     public static String GetInvOrgURI() {
         return GET_INVORG_URI;
     }
+    private static final String GET_PERIOD_URI = "/webservices/rest/DCOMSF/getperiod/";
+    public static String GetPeriodURI() {
+        return GET_PERIOD_URI;
+    }
 
 }

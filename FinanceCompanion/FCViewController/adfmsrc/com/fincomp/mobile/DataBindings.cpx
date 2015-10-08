@@ -3,9 +3,11 @@
              SeparateXMLFiles="false" Package="com.fincomp.mobile" ClientType="Generic">
   <pageMap>
     <page path="/sync/SyncPG.amx" usageId="com_fincomp_mobile_SyncPGPageDef"/>
+    <page path="/dashboard/pages/StatisticsPG.amx" usageId="com_fincomp_mobile_StatisticsPGPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_fincomp_mobile_SyncPGPageDef" path="sync.SyncPGPageDef"/>
+    <page id="com_fincomp_mobile_StatisticsPGPageDef" path="dashboard.pages.StatisticsPGPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <dc id="ApplicationFeatures" path="com.fincomp.application.ApplicationFeatures"/>

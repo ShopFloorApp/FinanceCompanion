@@ -1,10 +1,28 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
   <task-flow-definition id="dashboardTF">
-    <default-activity>StatisticsPG</default-activity>
+    <default-activity>initializeDashboard</default-activity>
+    <managed-bean id="__1">
+      <managed-bean-name>DashboardBean</managed-bean-name>
+      <managed-bean-class>com.fincomp.mobile.beans.DashboardBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
     <view id="StatisticsPG">
       <page>/dashboard/pages/StatisticsPG.amx</page>
     </view>
+    <method-call id="initializeDashboard">
+      <method>#{pageFlowScope.DashboardBean.initializaDashboardAction}</method>
+      <outcome>
+        <fixed-outcome>goToDashBoard</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__2">
+      <from-activity-id>initializeDashboard</from-activity-id>
+      <control-flow-case id="__3">
+        <from-outcome>goToDashBoard</from-outcome>
+        <to-activity-id>StatisticsPG</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
     <page-flow-scope-behavior>
       <push-new/>
     </page-flow-scope-behavior>

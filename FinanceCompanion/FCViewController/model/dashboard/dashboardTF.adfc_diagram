@@ -9,9 +9,9 @@
       <property
          name="page">/dashboard/pages/StatisticsPG.amx</property>
       <property
-         name="start">true</property>
+         name="start">false</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>StatisticsPG&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+         name="description">&lt;html>&lt;p>&lt;b>StatisticsPG&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
          name="exceptionHandler">false</property>
       <property
@@ -19,4 +19,29 @@
       <property
          name="x">438.0</property>
    </View>
+   <MethodCall
+      id="MethodCall3">
+      <property
+         name="activityId">initializeDashboard</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>initializeDashboard&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">134.59766</property>
+      <property
+         name="x">193.0</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="MethodCall3"
+      to="View2">
+      <property
+         name="fromOutcome">goToDashBoard</property>
+      <property
+         name="sdm:polyPoints">R50,234.95924,134.24707,396.0407,239.59766,L50</property>
+   </ControlFlowCase>
 </SDM>
