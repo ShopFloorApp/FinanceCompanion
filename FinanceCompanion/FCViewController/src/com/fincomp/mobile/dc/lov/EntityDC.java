@@ -23,6 +23,7 @@ public class EntityDC extends SyncUtils{
     
     public EntityDC() {
         super();
+        syncLocalDB();
     }
     
     public void syncLocalDB(){
