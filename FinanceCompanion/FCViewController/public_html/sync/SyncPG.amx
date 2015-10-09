@@ -7,9 +7,16 @@
         <amx:rowLayout id="rl1">
           <amx:cellFormat id="cf3" width="10px" halign="center" valign="middle"/>
           <amx:cellFormat id="cf1" halign="center" valign="bottom" width="20px">
-            <amx:commandLink 
-                        id="cl3" actionListener="#{bindings.gotoSpringboard.execute}">
-              <amx:outputHtml id="oh2" styleClass="fa fa-bars fa-lg" inlineStyle="color: white;"/>            </amx:commandLink>
+                        <amx:deck id="d1" displayedChild="#{applicationScope.isSpringboardVisible != 'Y' ? 'cl3' : 'cl2'}">
+              <amx:commandLink id="cl3" actionListener="#{ApplicationBean.gotoSpringboard}">
+                <amx:outputHtml id="oh2" styleClass="fa fa-bars fa-lg" inlineStyle="color: white;"/>
+              </amx:commandLink>
+                <amx:commandLink id="cl2" actionListener="#{ApplicationBean.closeSpringBoard}">
+                <amx:outputHtml id="oh3" styleClass="fa fa-arrow-circle-o-left fa-lg" inlineStyle="color: white;"/>
+              </amx:commandLink>
+              <amx:panelLabelAndMessage label="label1" id="plam1"/>
+              <amx:transition triggerType="forwardNavigate" id="t1" transition="flipRight"/>
+            </amx:deck>
           </amx:cellFormat>
           <amx:cellFormat id="cf2" valign="bottom" width="80%" halign="center">
                         <amx:outputText value="Sync Data" id="ot1" inlineStyle="color: white; font-weight: bold;"/>
@@ -104,7 +111,7 @@
                                 </amx:rowLayout>
                                 <amx:rowLayout id="rl40" rendered="false">
                                     <amx:cellFormat id="cf57" halign="end" valign="bottom">
-                                        <amx:commandLink id="cl2" actionListener="#{jsMBean.flipCardFront}">
+                                        <amx:commandLink id="cl1">
                                             <amx:image id="i3" source="/images/flipfront.png"
                                                        inlineStyle="height: 25px;"/>
                                             <amx:setPropertyListener id="spl2" to="#{pageFlowScope.deckName}"

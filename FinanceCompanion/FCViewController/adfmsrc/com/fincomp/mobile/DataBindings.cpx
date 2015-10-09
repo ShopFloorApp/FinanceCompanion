@@ -4,10 +4,12 @@
   <pageMap>
     <page path="/sync/SyncPG.amx" usageId="com_fincomp_mobile_SyncPGPageDef"/>
     <page path="/dashboard/pages/StatisticsPG.amx" usageId="com_fincomp_mobile_StatisticsPGPageDef"/>
+    <page path="/Springboard/SpringboardPG.amx" usageId="com_fincomp_mobile_SpringboardPGPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_fincomp_mobile_SyncPGPageDef" path="sync.SyncPGPageDef"/>
     <page id="com_fincomp_mobile_StatisticsPGPageDef" path="dashboard.pages.StatisticsPGPageDef"/>
+    <page id="com_fincomp_mobile_SpringboardPGPageDef" path="Springboard.SpringboardPGPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <dc id="ApplicationFeatures" path="com.fincomp.application.ApplicationFeatures"/>

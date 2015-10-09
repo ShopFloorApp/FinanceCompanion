@@ -5,10 +5,14 @@
                    listener-class="com.fincomp.application.LifeCycleListenerImpl">
   <adfmf:featureReference refId="dashboard" id="fr2" loginConnRefId="FinanceComp"/>
   <adfmf:featureReference refId="Sync" id="fr1" loginConnRefId="FinanceComp"/>
+  <adfmf:featureReference refId="Springboard" id="fr3" showOnNavigationBar="false" showOnSpringboard="false"
+                          loginConnRefId="FinanceComp"/>
   <adfmf:navigation>
     <adfmf:navigationBar enabled="false"/>
     <adfmf:springboard enabled="true" showSpringboardAtStartup="false" displayGotoSpringboardControl="false"
-                       width="200"/>
+                       width="200">
+      <adfmf:springboardFeatureReference refId="Springboard" id="sfr1"/>
+    </adfmf:springboard>
   </adfmf:navigation>
   <adfmf:login defaultConnRefId="FinanceComp"/>
 </adfmf:application>
