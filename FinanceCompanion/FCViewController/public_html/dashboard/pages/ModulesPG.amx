@@ -16,7 +16,7 @@
                     </amx:cellFormat>
                     <amx:cellFormat id="cf4" halign="end" valign="bottom" width="30%">
             <amx:commandLink 
-                        id="cl1" actionListener="#{bindings.gotoSpringboard.execute}">
+                        id="cl1" >
               <amx:outputHtml id="oh1" value="#{pageFlowScope.currentPeriod}"
                               inlineStyle="font-size:small;color: white;"/>            </amx:commandLink>
           </amx:cellFormat>
@@ -24,5 +24,16 @@
         </amx:rowLayout>
       </amx:tableLayout>
     </amx:facet>
+    <amx:tableLayout id="tl2" width="100%" inlineStyle="background-color: lightGrey;">
+      <amx:rowLayout id="rl2">
+        <amx:cellFormat id="cf6" width="100%" halign="center">
+          <amx:selectOneChoice id="soc1" valueChangeListener="#{pageFlowScope.DashboardBean.valueChangeOnEntity}">
+            <amx:selectItem id="si2" label="Choose Entity"/>
+            <amx:selectItems value="#{bindings.name.items}" id="si1"/>
+          </amx:selectOneChoice>
+        </amx:cellFormat>
+      </amx:rowLayout>
+    </amx:tableLayout>
+    <amx:commandButton text="commandButton1" id="cb1" inlineStyle="display:none;" />
   </amx:panelPage>
 </amx:view>

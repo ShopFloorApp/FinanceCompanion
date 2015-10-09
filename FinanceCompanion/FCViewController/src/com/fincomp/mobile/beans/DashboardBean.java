@@ -15,6 +15,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 public class DashboardBean extends SyncUtils {
+    
     public DashboardBean() {
         super();
     }
@@ -25,6 +26,23 @@ public class DashboardBean extends SyncUtils {
         BackgroundProcess bp=new BackgroundProcess();
         Thread t=new Thread(bp);
         t.start();
+        getCurrentPeriod();
+    }
+    public void callButtonActionJS(String btn){
+        String featureID = AdfmfJavaUtilities.getFeatureId();
+        AdfmfContainerUtilities.invokeContainerJavaScriptFunction(featureID, "showPopup", new Object[] {btn});
+    }
+
+    public void valueChangeOnEntity(ValueChangeEvent valueChangeEvent) {
+        // Add event code here...
+        callButtonActionJS("cb1");
+    }
+    
+    public void getCurrentPeriod(){
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+        }
         // Code for Getting Current Period
         String restURI = RestURI.GetPeriodURI();
         RestCallerUtil rcu = new RestCallerUtil();
@@ -53,21 +71,11 @@ public class DashboardBean extends SyncUtils {
                 JSONObject jsonObject = (JSONObject) object;
                 JSONObject jsObject = (JSONObject) jsonObject.get("OutputParameters");
                 String period = (String) jsObject.get("XPERIOD");
-                Thread.sleep(1000);
                 AdfmfJavaUtilities.setELValue("#{pageFlowScope.currentPeriod}", period);
                 
             }catch(Exception e){
                 e.getMessage();
             }
         }
-    }
-    public void callButtonActionJS(String btn){
-        String featureID = AdfmfJavaUtilities.getFeatureId();
-        AdfmfContainerUtilities.invokeContainerJavaScriptFunction(featureID, "showPopup", new Object[] {btn});
-    }
-
-    public void valueChangeOnEntity(ValueChangeEvent valueChangeEvent) {
-        // Add event code here...
-        callButtonActionJS("cb1");
     }
 }
