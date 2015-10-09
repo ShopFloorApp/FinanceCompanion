@@ -5,6 +5,8 @@ import com.fincomp.mobile.utility.RestCallerUtil;
 import com.fincomp.mobile.utility.RestURI;
 import com.fincomp.mobile.utility.SyncUtils;
 
+import oracle.adfmf.amx.event.ValueChangeEvent;
+import oracle.adfmf.framework.api.AdfmfContainerUtilities;
 import oracle.adfmf.framework.api.AdfmfJavaUtilities;
 
 import org.json.simple.JSONArray;
@@ -59,6 +61,13 @@ public class DashboardBean extends SyncUtils {
             }
         }
     }
-    
-    
+    public void callButtonActionJS(String btn){
+        String featureID = AdfmfJavaUtilities.getFeatureId();
+        AdfmfContainerUtilities.invokeContainerJavaScriptFunction(featureID, "showPopup", new Object[] {btn});
+    }
+
+    public void valueChangeOnEntity(ValueChangeEvent valueChangeEvent) {
+        // Add event code here...
+        callButtonActionJS("cb1");
+    }
 }

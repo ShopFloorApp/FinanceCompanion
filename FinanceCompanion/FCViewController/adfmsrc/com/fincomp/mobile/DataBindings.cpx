@@ -5,11 +5,13 @@
     <page path="/sync/SyncPG.amx" usageId="com_fincomp_mobile_SyncPGPageDef"/>
     <page path="/dashboard/pages/StatisticsPG.amx" usageId="com_fincomp_mobile_StatisticsPGPageDef"/>
     <page path="/Springboard/SpringboardPG.amx" usageId="com_fincomp_mobile_SpringboardPGPageDef"/>
+    <page path="/dashboard/pages/ModulesPG.amx" usageId="com_fincomp_mobile_ModulesPGPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_fincomp_mobile_SyncPGPageDef" path="sync.SyncPGPageDef"/>
     <page id="com_fincomp_mobile_StatisticsPGPageDef" path="dashboard.pages.StatisticsPGPageDef"/>
     <page id="com_fincomp_mobile_SpringboardPGPageDef" path="Springboard.SpringboardPGPageDef"/>
+    <page id="com_fincomp_mobile_ModulesPGPageDef" path="dashboard.pages.ModulesPGPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <dc id="EntityDC" path="com.fincomp.mobile.EntityDC"/>

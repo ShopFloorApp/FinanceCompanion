@@ -2,23 +2,17 @@
 <amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
           xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
   <amx:panelPage id="pp1">
-        <amx:facet name="header">
+    <amx:facet name="header">
             <amx:tableLayout id="tl1" width="100%">
         <amx:rowLayout id="rl1">
           <amx:cellFormat id="cf3" width="10px" halign="center" valign="middle"/>
           <amx:cellFormat id="cf1" halign="center" valign="bottom" width="20px">
-            <amx:deck id="d1" displayedChild="#{applicationScope.isSpringboardVisible != 'Y' ? 'cl3' : 'cl2'}">
-              <amx:commandLink id="cl3" actionListener="#{ApplicationBean.gotoSpringboard}">
-                <amx:outputHtml id="oh2" styleClass="fa fa-bars fa-lg" inlineStyle="color: white;"/>
-              </amx:commandLink>
-                <amx:commandLink id="cl2" actionListener="#{ApplicationBean.closeSpringBoard}">
+                <amx:commandLink id="cl2" action="back">
                 <amx:outputHtml id="oh3" styleClass="fa fa-arrow-circle-o-left fa-lg" inlineStyle="color: white;"/>
               </amx:commandLink>
-              <amx:transition triggerType="forwardNavigate" id="t1" transition="flipRight"/>
-            </amx:deck>
           </amx:cellFormat>
           <amx:cellFormat id="cf2" valign="bottom" width="70%" halign="center">
-                        <amx:outputText value="Statistics" id="ot1" inlineStyle="color: white; font-weight: bold;"/>
+                        <amx:outputText value="Modules" id="ot1" inlineStyle="color: white; font-weight: bold;"/>
                     </amx:cellFormat>
                     <amx:cellFormat id="cf4" halign="end" valign="bottom" width="30%">
             <amx:commandLink 
@@ -30,16 +24,5 @@
         </amx:rowLayout>
       </amx:tableLayout>
     </amx:facet>
-    <amx:tableLayout id="tl2" width="100%" inlineStyle="background-color: lightGrey;">
-      <amx:rowLayout id="rl2">
-        <amx:cellFormat id="cf6" width="100%" halign="center">
-          <amx:selectOneChoice id="soc1" valueChangeListener="#{pageFlowScope.DashboardBean.valueChangeOnEntity}">
-            <amx:selectItem id="si2" label="Choose Entity"/>
-            <amx:selectItems value="#{bindings.name.items}" id="si1"/>
-          </amx:selectOneChoice>
-        </amx:cellFormat>
-      </amx:rowLayout>
-    </amx:tableLayout>
-    <amx:commandButton text="commandButton1" id="cb1" inlineStyle="display:none;" action="goToModule"/>
   </amx:panelPage>
 </amx:view>

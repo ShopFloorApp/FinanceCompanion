@@ -44,4 +44,39 @@
       <property
          name="sdm:polyPoints">R50,234.95924,134.24707,396.0407,239.59766,L50</property>
    </ControlFlowCase>
+   <View
+      id="View5">
+      <property
+         name="activityId">ModulesPG</property>
+      <property
+         name="page">/dashboard/pages/ModulesPG.amx</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ModulesPG&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">312.59766</property>
+      <property
+         name="x">757.0</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase6"
+      from="View2"
+      to="View5">
+      <property
+         name="fromOutcome">goToModule</property>
+      <property
+         name="sdm:polyPoints">R50,479.0,239.59766,716.0,312.24707,L50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase8"
+      from="View5"
+      to="View2">
+      <property
+         name="fromOutcome">back</property>
+      <property
+         name="sdm:polyPoints">L54,714.949,315.74707,479.0,243.09766,R54</property>
+   </ControlFlowCase>
 </SDM>

@@ -16,10 +16,27 @@
         <fixed-outcome>goToDashBoard</fixed-outcome>
       </outcome>
     </method-call>
+    <view id="ModulesPG">
+      <page>/dashboard/pages/ModulesPG.amx</page>
+    </view>
     <control-flow-rule id="__2">
       <from-activity-id>initializeDashboard</from-activity-id>
       <control-flow-case id="__3">
         <from-outcome>goToDashBoard</from-outcome>
+        <to-activity-id>StatisticsPG</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__4">
+      <from-activity-id>StatisticsPG</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome>goToModule</from-outcome>
+        <to-activity-id>ModulesPG</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__8">
+      <from-activity-id>ModulesPG</from-activity-id>
+      <control-flow-case id="__9">
+        <from-outcome>back</from-outcome>
         <to-activity-id>StatisticsPG</to-activity-id>
       </control-flow-case>
     </control-flow-rule>

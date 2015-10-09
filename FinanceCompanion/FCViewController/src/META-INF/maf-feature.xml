@@ -11,7 +11,11 @@
   </adfmf:feature>
   <adfmf:feature id="dashboard" name="Dashboard" securityEnabled="true">
     <adfmf:content id="dashboard.1">
-      <adfmf:amx file="dashboard/dashboardTF.xml#dashboardTF"/>
+      <adfmf:amx file="dashboard/dashboardTF.xml#dashboardTF">
+        <adfmf:includes>
+          <adfmf:include type="JavaScript" file="resources/js/customEvent.js" id="i2"/>
+        </adfmf:includes>
+      </adfmf:amx>
     </adfmf:content>
   </adfmf:feature>
   <adfmf:feature id="Springboard" name="Springboard" securityEnabled="true">
