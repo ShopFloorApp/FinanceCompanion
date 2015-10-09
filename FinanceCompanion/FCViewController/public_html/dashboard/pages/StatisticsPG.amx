@@ -31,5 +31,15 @@
         </amx:rowLayout>
       </amx:tableLayout>
     </amx:facet>
+    <amx:tableLayout id="tl2" width="100%" inlineStyle="background-color: lightGrey;">
+      <amx:rowLayout id="rl2">
+        <amx:cellFormat id="cf6" width="100%" halign="center">
+          <amx:selectOneChoice id="soc1">
+            <amx:selectItem id="si2" label="Choose Entity"/>
+            <amx:selectItems value="#{bindings.name.items}" id="si1"/>
+          </amx:selectOneChoice>
+        </amx:cellFormat>
+      </amx:rowLayout>
+    </amx:tableLayout>
   </amx:panelPage>
 </amx:view>

@@ -7,7 +7,7 @@ import oracle.adfmf.java.beans.PropertyChangeSupport;
 
 public class FABookBO {
     private String BookType;
-    private String Name;
+    private String FABookName;
     private String Entity;
     private String Owner;
     private PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
@@ -26,14 +26,14 @@ public class FABookBO {
         return BookType;
     }
 
-    public void setName(String Name) {
-        String oldName = this.Name;
-        this.Name = Name;
-        propertyChangeSupport.firePropertyChange("Name", oldName, Name);
+    public void setFABookName(String FABookName) {
+        String oldFABookName = this.FABookName;
+        this.FABookName = FABookName;
+        propertyChangeSupport.firePropertyChange("FABookName", oldFABookName, FABookName);
     }
 
-    public String getName() {
-        return Name;
+    public String getFABookName() {
+        return FABookName;
     }
 
     public void setEntity(String Entity) {
@@ -66,7 +66,7 @@ public class FABookBO {
     
     public void setBOClassRow(HashMap hashMap) {
         this.setBookType((String) hashMap.get("booktype"));
-        this.setName((String) hashMap.get("name"));
+        this.setFABookName((String) hashMap.get("fabookname"));
         this.setEntity((String) hashMap.get("entity"));
         this.setOwner((String) hashMap.get("owner"));
     }
@@ -74,7 +74,7 @@ public class FABookBO {
     public HashMap getBOClassRow(FABookBO faBook) {
         HashMap map = new HashMap();
         map.put("booktype", faBook.getBookType());
-        map.put("name", faBook.getName());
+        map.put("fabookname", faBook.getFABookName());
         map.put("entity", faBook.getEntity());
         map.put("owner", faBook.getOwner());
         return map;

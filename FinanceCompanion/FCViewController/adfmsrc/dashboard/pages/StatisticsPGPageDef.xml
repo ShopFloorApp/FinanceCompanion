@@ -3,7 +3,12 @@
                 Package="dashboard.pages">
   <parameters/>
   <executables>
-    <variableIterator id="variables"/>
+    <variableIterator id="variables">
+      <variable Name="entityNameVar" Type="java.lang.String"/>
+    </variableIterator>
+    <iterator Binds="root" RangeSize="25" DataControl="EntityDC" id="EntityDCIterator"/>
+    <accessorIterator MasterBinding="EntityDCIterator" Binds="entity" RangeSize="-1" DataControl="EntityDC"
+                      BeanClass="com.fincomp.mobile.pojo.lov.EntityBO" id="entityIterator"/>
   </executables>
   <bindings>
     <methodAction id="gotoSpringboard" RequiresUpdateModel="true" Action="invokeMethod" MethodName="gotoSpringboard"
@@ -14,5 +19,20 @@
                   InstanceName="data.ApplicationFeatures.dataProvider">
       <NamedData NDName="featureId" NDType="java.lang.String"/>
     </methodAction>
+    <list IterBinding="variables" id="name" DTSupportsMRU="true" SelectItemValueMode="ListObject"
+          StaticList="false" ListIter="entityIterator" NullValueFlag="start" NullValueId="name_null">
+      <AttrNames>
+        <Item Value="entityNameVar"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="entityName"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="entityName"/>
+      </ListDisplayAttrNames>
+    </list>
   </bindings>
+  <ResourceBundle>
+    <XliffBundle xmlns="http://xmlns.oracle.com/adfm/resourcebundle" id="com.fincomp.mobile.FCViewControllerBundle"/>
+  </ResourceBundle>
 </pageDefinition>

@@ -12,6 +12,7 @@
     <page id="com_fincomp_mobile_SpringboardPGPageDef" path="Springboard.SpringboardPGPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
+    <dc id="EntityDC" path="com.fincomp.mobile.EntityDC"/>
     <dc id="ApplicationFeatures" path="com.fincomp.application.ApplicationFeatures"/>
     <dc id="SyncPreferencesDC" path="com.fincomp.mobile.SyncPreferencesDC"/>
   </dataControlUsages>

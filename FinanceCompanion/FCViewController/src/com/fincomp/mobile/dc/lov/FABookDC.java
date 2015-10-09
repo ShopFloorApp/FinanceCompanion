@@ -74,7 +74,7 @@ public class FABookDC extends SyncUtils{
                             JSONObject jsObject2 = (JSONObject) array.get(i);
 
                             fabookItems.setBookType((jsObject2.get("BOOKTYPE").toString()));
-                            fabookItems.setName((jsObject2.get("NAME").toString()));
+                            fabookItems.setFABookName((jsObject2.get("NAME").toString()));
                             fabookItems.setEntity((jsObject2.get("ENTITY").toString()));
                             fabookItems.setOwner((jsObject2.get("OWNER").toString()));
 
@@ -90,7 +90,7 @@ public class FABookDC extends SyncUtils{
                     if (jsObject2 != null) {
                         FABookBO fabookItems = new FABookBO();
                         fabookItems.setBookType((jsObject2.get("BOOKTYPE").toString()));
-                        fabookItems.setName((jsObject2.get("NAME").toString()));
+                        fabookItems.setFABookName((jsObject2.get("NAME").toString()));
                         fabookItems.setEntity((jsObject2.get("ENTITY").toString()));
                         fabookItems.setOwner((jsObject2.get("OWNER").toString()));
                         s_fabook.add(fabookItems);

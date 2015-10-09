@@ -72,7 +72,7 @@ public class EntityDC extends SyncUtils{
                             JSONObject jsObject2 = (JSONObject) array.get(i);
 
                             entityItems.setCountry((jsObject2.get("COUNTRY").toString()));
-                            entityItems.setName((jsObject2.get("NAME").toString()));
+                            entityItems.setEntityName((jsObject2.get("NAME").toString()));
                             entityItems.setLedger((jsObject2.get("LEDGER").toString()));
                             entityItems.setOwner((jsObject2.get("OWNER").toString()));
 
@@ -88,7 +88,7 @@ public class EntityDC extends SyncUtils{
                     if (jsObject2 != null) {
                         EntityBO entityItems = new EntityBO();
                         entityItems.setCountry((jsObject2.get("COUNTRY").toString()));
-                        entityItems.setName((jsObject2.get("NAME").toString()));
+                        entityItems.setEntityName((jsObject2.get("NAME").toString()));
                         entityItems.setLedger((jsObject2.get("LEDGER").toString()));
                         entityItems.setOwner((jsObject2.get("OWNER").toString()));
                         s_entity.add(entityItems);
