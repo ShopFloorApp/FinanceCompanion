@@ -41,5 +41,101 @@
       </amx:rowLayout>
     </amx:tableLayout>
     <amx:commandButton text="commandButton1" id="cb1" inlineStyle="display:none;" action="goToModule"/>
+    <amx:spacer id="s2" height="10"/>
+    <amx:tableLayout id="tl6" width="100%">
+      <amx:rowLayout id="rl11">
+        <amx:cellFormat id="cf28" width="10px" columnSpan="1"/>
+        <amx:cellFormat id="cf27" width="100%" inlineStyle="border-bottom: 1px solid Blue;">
+          <amx:outputText value="Status" id="ot8" inlineStyle="color:Blue;"/>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf7" width="10px"/>
+      </amx:rowLayout>
+    </amx:tableLayout>
+    <amx:spacer id="s1" height="10"/>
+    <amx:tableLayout id="tl3" width="100%">
+      <amx:rowLayout id="rl3">
+        <amx:cellFormat id="cf19" width="10px"/>
+        <amx:cellFormat id="cf8" width="60%" inlineStyle="border-bottom: 4px solid Green;">
+          <amx:outputText value="Entity with no close issues" id="ot2"
+                          inlineStyle="font-size:small; font-weight:bold;color:Grey;"/>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf9" width="40%" halign="center" inlineStyle="border-bottom: 4px solid Green;">
+          <amx:outputText value="#{pageFlowScope.noCloseIssues}" id="ot3"
+                          inlineStyle="font-size:large; font-weight:bold; color:Green;"/>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf10" width="10px"/>
+      </amx:rowLayout>
+      <amx:rowLayout id="rl6">
+                                    <amx:cellFormat id="cf22" inlineStyle="border: 1px solid #FFFFFF;" width="100%"
+                                                    columnSpan="6"/>
+                                </amx:rowLayout>
+                                      <amx:rowLayout id="rl12">
+                                    <amx:cellFormat id="cf29" inlineStyle="border: 1px solid #D6C9C9;" width="100%"
+                                                    columnSpan="6"/>
+                                </amx:rowLayout>
+    </amx:tableLayout>
+    <amx:spacer id="s1e" height="5"/>
+    <amx:tableLayout id="tl4" width="100%">
+      <amx:rowLayout id="rl4">
+        <amx:cellFormat id="cf20" width="10px"/>
+        <amx:cellFormat id="cf12" width="60%" inlineStyle="border-bottom: 4px solid Orange;">
+          <amx:outputText value="Entity with close warning" id="ot4"
+                          inlineStyle="font-size:small; font-weight:bold;color:Grey;"/>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf13" width="40%" halign="center" inlineStyle="border-bottom: 4px solid Orange;">
+          <amx:outputText value="#{pageFlowScope.closeWarnings}" id="ot5"
+                          inlineStyle="font-size:large; font-weight:bold; color:Orange;"/>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf14" width="10px"/>
+      </amx:rowLayout>
+      <amx:rowLayout id="rl7">
+                                    <amx:cellFormat id="cf23" inlineStyle="border: 1px solid #FFFFFF;" width="100%"
+                                                    columnSpan="5"/>
+                                </amx:rowLayout>
+                                      <amx:rowLayout id="rl8">
+                                    <amx:cellFormat id="cf24" inlineStyle="border: 1px solid #D6C9C9;" width="100%"
+                                                    columnSpan="5"/>
+                                </amx:rowLayout>
+    </amx:tableLayout>
+    <amx:spacer id="s1e5" height="5"/>
+    <amx:tableLayout id="tl5" width="100%">
+      <amx:rowLayout id="rl5">
+        <amx:cellFormat id="cf21" width="10px"/>
+        <amx:cellFormat id="cf16" width="60%" inlineStyle="border-bottom: 4px solid Red;">
+          <amx:outputText value="Entity with close issues" id="ot6"
+                          inlineStyle="font-size:small; font-weight:bold;color:Grey;"/>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf17" width="40%" halign="center" inlineStyle="border-bottom: 4px solid Red;">
+          <amx:outputText value="#{pageFlowScope.closeIssues}" id="ot7"
+                          inlineStyle="font-size:large; font-weight:bold; color:Red;"/>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf18" width="10px"/>
+      </amx:rowLayout>
+      <amx:rowLayout id="rl9">
+                                    <amx:cellFormat id="cf25" inlineStyle="border: 1px solid #FFFFFF;" width="100%"
+                                                    columnSpan="5"/>
+                                </amx:rowLayout>
+                                      <amx:rowLayout id="rl10">
+                                    <amx:cellFormat id="cf26" inlineStyle="border: 1px solid #D6C9C9;" width="100%"
+                                                    columnSpan="5"/>
+                                </amx:rowLayout>
+    </amx:tableLayout>
+    <amx:spacer id="s3" height="10"/>
+        <amx:tableLayout id="tl7" width="100%">
+      <amx:rowLayout id="rl13">
+        <amx:cellFormat id="cf11" width="10px" columnSpan="1"/>
+        <amx:cellFormat id="cf15" width="100%" inlineStyle="border-bottom: 1px solid Blue;">
+          <amx:outputText value="Top 5 Entities with close issues" id="ot9" inlineStyle="color:Blue;"/>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf30" width="10px"/>
+      </amx:rowLayout>
+    </amx:tableLayout>
+    <dvtm:barChart var="row" value="#{bindings.dashboardDetails.collectionModel}" id="bc1">
+      <amx:facet name="dataStamp">
+        <dvtm:chartDataItem group="#{row.entity}" value="#{row.issueCount}"
+                            series="#{bindings.dashboardDetails.hints.issueCount.label}" id="cdi1"/>
+      </amx:facet>
+      <dvtm:legend rendered="false" id="l1"/>
+    </dvtm:barChart>
   </amx:panelPage>
 </amx:view>

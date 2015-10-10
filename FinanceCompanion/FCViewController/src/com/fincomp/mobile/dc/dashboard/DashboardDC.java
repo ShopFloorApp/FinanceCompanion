@@ -71,7 +71,7 @@ public class DashboardDC {
                         dashboardItems.setInvOrg((jsObject2.get("INVORG").toString()));
                         dashboardItems.setOwner((jsObject2.get("OWNER").toString()));
                         dashboardItems.setStatus((jsObject2.get("STATUS").toString()));
-                        dashboardItems.setIssueCount((jsObject2.get("ISSUECOUNT").toString()));
+                        dashboardItems.setIssueCount(Integer.parseInt((jsObject2.get("ISSUECOUNT").toString())));
                         dashboardItems.setModule((jsObject2.get("MODULE").toString()));
 
                         s_dashboardEntity.add(dashboardItems);
@@ -92,7 +92,7 @@ public class DashboardDC {
                     dashboardItems.setInvOrg((jsObject2.get("INVORG").toString()));
                     dashboardItems.setOwner((jsObject2.get("OWNER").toString()));
                     dashboardItems.setStatus((jsObject2.get("STATUS").toString()));
-                    dashboardItems.setIssueCount((jsObject2.get("ISSUECOUNT").toString()));
+                    dashboardItems.setIssueCount(Integer.parseInt((jsObject2.get("ISSUECOUNT").toString())));
                     dashboardItems.setModule((jsObject2.get("MODULE").toString()));
 
                     s_dashboardEntity.add(dashboardItems);

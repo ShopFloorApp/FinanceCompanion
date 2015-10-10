@@ -9,6 +9,10 @@
     <iterator Binds="root" RangeSize="25" DataControl="EntityDC" id="EntityDCIterator"/>
     <accessorIterator MasterBinding="EntityDCIterator" Binds="entity" RangeSize="-1" DataControl="EntityDC"
                       BeanClass="com.fincomp.mobile.pojo.lov.EntityBO" id="entityIterator"/>
+    <iterator Binds="root" RangeSize="25" DataControl="DashboardDC" id="DashboardDCIterator"/>
+    <accessorIterator MasterBinding="DashboardDCIterator" Binds="dashboardDetails" RangeSize="-1"
+                      DataControl="DashboardDC" BeanClass="com.fincomp.mobile.pojo.dashboard.DashboardBO"
+                      id="dashboardDetailsIterator"/>
   </executables>
   <bindings>
     <methodAction id="gotoSpringboard" RequiresUpdateModel="true" Action="invokeMethod" MethodName="gotoSpringboard"
@@ -31,6 +35,14 @@
         <Item Value="entityName"/>
       </ListDisplayAttrNames>
     </list>
+    <tree IterBinding="dashboardDetailsIterator" id="dashboardDetails">
+      <nodeDefinition DefName="com.fincomp.mobile.pojo.dashboard.DashboardBO" Name="dashboardDetails0">
+        <AttrNames>
+          <Item Value="issueCount"/>
+          <Item Value="entity"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
   <ResourceBundle>
     <XliffBundle xmlns="http://xmlns.oracle.com/adfm/resourcebundle" id="com.fincomp.mobile.FCViewControllerBundle"/>

@@ -1,9 +1,13 @@
 package com.fincomp.mobile.beans;
 
+import com.fincomp.mobile.dc.dashboard.DashboardDC;
+import com.fincomp.mobile.pojo.dashboard.DashboardBO;
 import com.fincomp.mobile.utility.BackgroundProcess;
 import com.fincomp.mobile.utility.RestCallerUtil;
 import com.fincomp.mobile.utility.RestURI;
 import com.fincomp.mobile.utility.SyncUtils;
+
+import java.util.ArrayList;
 
 import oracle.adfmf.amx.event.ValueChangeEvent;
 import oracle.adfmf.framework.api.AdfmfContainerUtilities;
@@ -15,7 +19,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 public class DashboardBean extends SyncUtils {
-    
+    DashboardDC dashDC=new DashboardDC();
     public DashboardBean() {
         super();
     }
@@ -23,10 +27,28 @@ public class DashboardBean extends SyncUtils {
 
     public void initializaDashboardAction() {
         // Code for running background process
+        int noCloseIssue=0;
+        int closeWarning=0;
+        int closeIssues=0;
         BackgroundProcess bp=new BackgroundProcess();
         Thread t=new Thread(bp);
         t.start();
         getCurrentPeriod();
+        dashDC.getDashboardDetails((String)AdfmfJavaUtilities.evaluateELExpression("#{pageFlowScope.currentPeriod}"), "DASHBOARD", "");
+        ArrayList dash = (ArrayList) dashDC.s_dashboardEntity;
+        for(int i=0;i<dash.size();i++){
+            DashboardBO dashBO = (DashboardBO) dash.get(i);
+            if(dashBO.getStatus().equals("0")){
+                noCloseIssue++;
+            }else if(dashBO.getStatus().equals("1")){
+                closeWarning++;
+            }else{
+                closeIssues++;
+            }
+        }
+        AdfmfJavaUtilities.setELValue("#{pageFlowScope.noCloseIssues}", noCloseIssue);
+        AdfmfJavaUtilities.setELValue("#{pageFlowScope.closeWarnings}", closeWarning);
+        AdfmfJavaUtilities.setELValue("#{pageFlowScope.closeIssues}", closeIssues);
     }
     public void callButtonActionJS(String btn){
         String featureID = AdfmfJavaUtilities.getFeatureId();
