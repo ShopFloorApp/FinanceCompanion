@@ -86,7 +86,7 @@ public class FABookDC extends SyncUtils{
                     }
                 } 
                 catch (ClassCastException e2) {
-                    JSONObject jsObject2 = (JSONObject) jsObject1.get("XWAREHOUSE_ITEM");
+                    JSONObject jsObject2 = (JSONObject) jsObject1.get("XBOOK_ITEM");
                     if (jsObject2 != null) {
                         FABookBO fabookItems = new FABookBO();
                         fabookItems.setBookType((jsObject2.get("BOOKTYPE").toString()));

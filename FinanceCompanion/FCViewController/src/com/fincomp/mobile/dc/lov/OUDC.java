@@ -84,7 +84,7 @@ public class OUDC extends SyncUtils {
                     }
                 } 
                 catch (ClassCastException e2) {
-                    JSONObject jsObject2 = (JSONObject) jsObject1.get("XWAREHOUSE_ITEM");
+                    JSONObject jsObject2 = (JSONObject) jsObject1.get("XOU_ITEM");
                     if (jsObject2 != null) {
                         OUBO ouItems = new OUBO();
                         ouItems.setOU((jsObject2.get("OU").toString()));

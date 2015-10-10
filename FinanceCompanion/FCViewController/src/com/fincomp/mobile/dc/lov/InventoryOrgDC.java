@@ -92,7 +92,7 @@ public class InventoryOrgDC extends SyncUtils {
                     }
                 } 
                 catch (ClassCastException e2) {
-                    JSONObject jsObject2 = (JSONObject) jsObject1.get("XWAREHOUSE_ITEM");
+                    JSONObject jsObject2 = (JSONObject) jsObject1.get("XORG_ITEM");
                     if (jsObject2 != null) {
                         InventoryOrgBO invOrgItems = new InventoryOrgBO();
                         invOrgItems.setOrgName((jsObject2.get("ORGNAME").toString()));

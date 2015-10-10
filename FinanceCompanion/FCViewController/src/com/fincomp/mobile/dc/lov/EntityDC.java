@@ -84,7 +84,7 @@ public class EntityDC extends SyncUtils{
                     }
                 } 
                 catch (ClassCastException e2) {
-                    JSONObject jsObject2 = (JSONObject) jsObject1.get("XWAREHOUSE_ITEM");
+                    JSONObject jsObject2 = (JSONObject) jsObject1.get("XENTITY_ITEM");
                     if (jsObject2 != null) {
                         EntityBO entityItems = new EntityBO();
                         entityItems.setCountry((jsObject2.get("COUNTRY").toString()));

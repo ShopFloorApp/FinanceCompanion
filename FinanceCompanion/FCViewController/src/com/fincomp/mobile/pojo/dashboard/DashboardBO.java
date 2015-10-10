@@ -11,10 +11,21 @@ public class DashboardBO {
     private String Owner;
     private String Status;
     private String Module;
+    private String IssueCount;
     private PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
 
     public DashboardBO() {
         super();
+    }
+
+    public void setIssueCount(String IssueCount) {
+        String oldIssueCount = this.IssueCount;
+        this.IssueCount = IssueCount;
+        propertyChangeSupport.firePropertyChange("IssueCount", oldIssueCount, IssueCount);
+    }
+
+    public String getIssueCount() {
+        return IssueCount;
     }
 
     public void setEntity(String Entity) {

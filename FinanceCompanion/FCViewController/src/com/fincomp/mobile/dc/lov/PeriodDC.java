@@ -85,7 +85,7 @@ public class PeriodDC extends SyncUtils {
                     }
                 } 
                 catch (ClassCastException e2) {
-                    JSONObject jsObject2 = (JSONObject) jsObject1.get("XWAREHOUSE_ITEM");
+                    JSONObject jsObject2 = (JSONObject) jsObject1.get("XPERIOD_ITEM");
                     if (jsObject2 != null) {
                         PeriodBO periodItems = new PeriodBO();
                         periodItems.setLedger((jsObject2.get("LEDGER").toString()));

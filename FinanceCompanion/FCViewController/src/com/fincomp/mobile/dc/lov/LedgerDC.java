@@ -85,7 +85,7 @@ public class LedgerDC extends SyncUtils {
                     }
                 } 
                 catch (ClassCastException e2) {
-                    JSONObject jsObject2 = (JSONObject) jsObject1.get("XWAREHOUSE_ITEM");
+                    JSONObject jsObject2 = (JSONObject) jsObject1.get("XLEDGER_ITEM");
                     if (jsObject2 != null) {
                         LedgerBO ledgerItems = new LedgerBO();
                         ledgerItems.setLedger((jsObject2.get("LEDGER").toString()));
