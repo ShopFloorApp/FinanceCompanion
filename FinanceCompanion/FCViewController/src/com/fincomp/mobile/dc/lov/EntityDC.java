@@ -18,7 +18,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 public class EntityDC extends SyncUtils{
-    protected static List s_entity = new ArrayList();
+    public static List s_entity = new ArrayList();
     private static final String NOT_REACHABLE = "NotReachable"; // Indiates no network connectivity
     
     public EntityDC() {

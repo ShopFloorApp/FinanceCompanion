@@ -1,7 +1,9 @@
 package com.fincomp.mobile.beans;
 
 import com.fincomp.mobile.dc.dashboard.DashboardDC;
+import com.fincomp.mobile.dc.lov.EntityDC;
 import com.fincomp.mobile.pojo.dashboard.DashboardBO;
+import com.fincomp.mobile.pojo.lov.EntityBO;
 import com.fincomp.mobile.utility.BackgroundProcess;
 import com.fincomp.mobile.utility.RestCallerUtil;
 import com.fincomp.mobile.utility.RestURI;
@@ -27,13 +29,11 @@ public class DashboardBean extends SyncUtils {
 
     public void initializaDashboardAction() {
         // Code for running background process
+        AdfmfJavaUtilities.setELValue("#{pageFlowScope.currentEntityOwner}", null);
+        AdfmfJavaUtilities.setELValue("#{pageFlowScope.currentEntity}", null);
         int noCloseIssue=0;
         int closeWarning=0;
         int closeIssues=0;
-        BackgroundProcess bp=new BackgroundProcess();
-        Thread t=new Thread(bp);
-        t.start();
-        getCurrentPeriod();
         dashDC.getDashboardDetails((String)AdfmfJavaUtilities.evaluateELExpression("#{pageFlowScope.currentPeriod}"), "DASHBOARD", "");
         ArrayList dash = (ArrayList) dashDC.s_dashboardEntity;
         for(int i=0;i<dash.size();i++){
@@ -57,15 +57,26 @@ public class DashboardBean extends SyncUtils {
 
     public void valueChangeOnEntity(ValueChangeEvent valueChangeEvent) {
         // Add event code here...
+        String entity = (String) valueChangeEvent.getNewValue();
+        ArrayList dash = (ArrayList) EntityDC.s_entity;
+        for(int i=0;i<dash.size();i++){
+            EntityBO entityBO = (EntityBO) dash.get(i);
+            if(entityBO.getEntityName().equals(entity)){
+                String owner=entityBO.getOwner();
+                AdfmfJavaUtilities.setELValue("#{pageFlowScope.currentEntityOwner}", owner);
+                break;
+            }
+        }
+        dashDC.getDashboardDetails((String)AdfmfJavaUtilities.evaluateELExpression("#{pageFlowScope.currentPeriod}"), "GL", (String)AdfmfJavaUtilities.evaluateELExpression("#{pageFlowScope.currentEntity}"));
         callButtonActionJS("cb1");
     }
     
     public void getCurrentPeriod(){
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-        }
         // Code for Getting Current Period
+        BackgroundProcess bp=new BackgroundProcess();
+        Thread t=new Thread(bp);
+        t.start();
+        
         String restURI = RestURI.GetPeriodURI();
         RestCallerUtil rcu = new RestCallerUtil();
         String payload =

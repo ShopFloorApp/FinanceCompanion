@@ -33,7 +33,8 @@
     <amx:tableLayout id="tl2" width="100%" inlineStyle="background-color: lightGrey;">
       <amx:rowLayout id="rl2">
         <amx:cellFormat id="cf6" width="100%" halign="center">
-          <amx:selectOneChoice id="soc1" valueChangeListener="#{pageFlowScope.DashboardBean.valueChangeOnEntity}">
+          <amx:selectOneChoice id="soc1" valueChangeListener="#{pageFlowScope.DashboardBean.valueChangeOnEntity}"
+                               value="#{pageFlowScope.currentEntity}">
             <amx:selectItem id="si2" label="Choose Entity"/>
             <amx:selectItems value="#{bindings.name.items}" id="si1"/>
           </amx:selectOneChoice>
@@ -125,17 +126,51 @@
       <amx:rowLayout id="rl13">
         <amx:cellFormat id="cf11" width="10px" columnSpan="1"/>
         <amx:cellFormat id="cf15" width="100%" inlineStyle="border-bottom: 1px solid Blue;">
-          <amx:outputText value="Top 5 Entities with close issues" id="ot9" inlineStyle="color:Blue;"/>
+          <amx:outputText value="Top Entities with close issues" id="ot9" inlineStyle="color:Blue;"/>
         </amx:cellFormat>
         <amx:cellFormat id="cf30" width="10px"/>
       </amx:rowLayout>
     </amx:tableLayout>
-    <dvtm:barChart var="row" value="#{bindings.dashboardDetails.collectionModel}" id="bc1">
+    <dvtm:barChart var="row" value="#{bindings.dashboardDetails.collectionModel}" id="bc1" seriesEffect="gradient"
+                   inlineStyle="height:150px;">
       <amx:facet name="dataStamp">
         <dvtm:chartDataItem group="#{row.entity}" value="#{row.issueCount}"
                             series="#{bindings.dashboardDetails.hints.issueCount.label}" id="cdi1"/>
       </amx:facet>
       <dvtm:legend rendered="false" id="l1"/>
     </dvtm:barChart>
+    <amx:spacer id="s4" height="10"/>
+        <amx:tableLayout id="tl8" width="100%">
+      <amx:rowLayout id="rl14">
+        <amx:cellFormat id="cf31" width="10px" columnSpan="1"/>
+        <amx:cellFormat id="cf32" width="100%" inlineStyle="border-bottom: 1px solid Blue;">
+          <amx:outputText value="Top Close issues" id="ot10" inlineStyle="color:Blue;"/>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf33" width="10px"/>
+      </amx:rowLayout>
+    </amx:tableLayout>
+    <amx:listView var="row" value="#{bindings.issueDetails.collectionModel}"
+                  fetchSize="#{bindings.issueDetails.rangeSize}"
+                  selectedRowKeys="#{bindings.issueDetails.collectionModel.selectedRow}"
+                  selectionListener="#{bindings.issueDetails.collectionModel.makeCurrent}" showMoreStrategy="autoScroll"
+                  bufferStrategy="viewport" id="lv1">
+      <amx:listItem id="li1" showLinkIcon="false"
+                    inlineStyle="">
+        <amx:tableLayout width="100%" id="tl9">
+          <amx:rowLayout id="rl16">
+            <amx:cellFormat width="10px" rowSpan="2" id="cf36"/>
+            <amx:cellFormat width="70%" height="#{deviceScope.device.os=='Android'?'36':'32'}px" id="cf35">
+              <amx:outputText value="#{row.issueText}" id="ot12"
+                              inlineStyle="font-size:small;}"/>
+            </amx:cellFormat>
+                        <amx:cellFormat width="30%" height="#{deviceScope.device.os=='Android'?'36':'32'}px" id="cf34"
+                                        halign="center">
+              <amx:outputText value="#{row.issueCount}" id="ot11" inlineStyle="font-size:small;"/>
+            </amx:cellFormat>
+            <amx:cellFormat width="10px" rowSpan="2" id="cf37"/>
+          </amx:rowLayout>
+        </amx:tableLayout>
+      </amx:listItem>
+    </amx:listView>
   </amx:panelPage>
 </amx:view>

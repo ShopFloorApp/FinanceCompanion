@@ -9,6 +9,12 @@
     <iterator Binds="root" RangeSize="25" DataControl="EntityDC" id="EntityDCIterator"/>
     <accessorIterator MasterBinding="EntityDCIterator" Binds="entity" RangeSize="-1" DataControl="EntityDC"
                       BeanClass="com.fincomp.mobile.pojo.lov.EntityBO" id="entityIterator"/>
+    <iterator Binds="root" RangeSize="25" DataControl="DashboardDC" id="DashboardDCIterator"/>
+    <accessorIterator MasterBinding="DashboardDCIterator" Binds="dashboardDetails" RangeSize="25"
+                      DataControl="DashboardDC" BeanClass="com.fincomp.mobile.pojo.dashboard.DashboardBO"
+                      id="dashboardDetailsIterator"/>
+    <accessorIterator MasterBinding="DashboardDCIterator" Binds="issueDetails" RangeSize="25" DataControl="DashboardDC"
+                      BeanClass="com.fincomp.mobile.pojo.dashboard.IssueDetailsBO" id="issueDetailsIterator"/>
   </executables>
   <bindings>
     <methodAction id="gotoSpringboard" RequiresUpdateModel="true" Action="invokeMethod" MethodName="gotoSpringboard"
@@ -31,6 +37,28 @@
         <Item Value="entityName"/>
       </ListDisplayAttrNames>
     </list>
+    <tree IterBinding="dashboardDetailsIterator" id="dashboardDetails">
+      <nodeDefinition DefName="com.fincomp.mobile.pojo.dashboard.DashboardBO" Name="dashboardDetails0">
+        <AttrNames>
+          <Item Value="module"/>
+          <Item Value="status"/>
+          <Item Value="entity"/>
+          <Item Value="invOrg"/>
+          <Item Value="issueCount"/>
+          <Item Value="ledger"/>
+          <Item Value="OU"/>
+          <Item Value="owner"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="issueDetailsIterator" id="issueDetails">
+      <nodeDefinition DefName="com.fincomp.mobile.pojo.dashboard.IssueDetailsBO" Name="issueDetails0">
+        <AttrNames>
+          <Item Value="issueText"/>
+          <Item Value="issueCount"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
   <ResourceBundle>
     <XliffBundle xmlns="http://xmlns.oracle.com/adfm/resourcebundle" id="com.fincomp.mobile.FCViewControllerBundle"/>

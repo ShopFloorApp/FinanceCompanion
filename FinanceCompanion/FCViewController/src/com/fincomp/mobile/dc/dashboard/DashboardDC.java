@@ -75,9 +75,9 @@ public class DashboardDC {
                         dashboardItems.setModule((jsObject2.get("MODULE").toString()));
 
                         s_dashboardEntity.add(dashboardItems);
-                        s_dashboardIssueDtls.add(getIssueDetails((JSONObject) jsObject2.get("DTLS"),
+                        s_dashboardIssueDtls.addAll(getIssueDetails((JSONObject) jsObject2.get("DTLS"),
                                                                  (jsObject2.get("MODULE").toString())));
-                        s_dashboardIssueSumm.add(getIssueDetails((JSONObject) jsObject2.get("SUMMARY"),
+                        s_dashboardIssueSumm.addAll(getIssueDetails((JSONObject) jsObject2.get("SUMMARY"),
                                                                  (jsObject2.get("MODULE").toString())));
                     }
 
@@ -96,9 +96,9 @@ public class DashboardDC {
                     dashboardItems.setModule((jsObject2.get("MODULE").toString()));
 
                     s_dashboardEntity.add(dashboardItems);
-                    s_dashboardIssueDtls.add(getIssueDetails((JSONObject) jsObject2.get("DTLS"),
+                    s_dashboardIssueDtls.addAll(getIssueDetails((JSONObject) jsObject2.get("DTLS"),
                                                              (jsObject2.get("MODULE").toString())));
-                    s_dashboardIssueSumm.add(getIssueDetails((JSONObject) jsObject2.get("SUMMARY"),
+                    s_dashboardIssueSumm.addAll(getIssueDetails((JSONObject) jsObject2.get("SUMMARY"),
                                                              (jsObject2.get("MODULE").toString())));
 
                 }

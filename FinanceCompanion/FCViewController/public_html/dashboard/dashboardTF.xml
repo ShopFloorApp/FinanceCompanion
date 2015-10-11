@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
   <task-flow-definition id="dashboardTF">
-    <default-activity>initializeDashboard</default-activity>
+    <default-activity>getPeriod</default-activity>
     <managed-bean id="__1">
       <managed-bean-name>DashboardBean</managed-bean-name>
       <managed-bean-class>com.fincomp.mobile.beans.DashboardBean</managed-bean-class>
@@ -19,6 +19,12 @@
     <view id="ModulesPG">
       <page>/dashboard/pages/ModulesPG.amx</page>
     </view>
+    <method-call id="getPeriod">
+      <method>#{pageFlowScope.DashboardBean.getCurrentPeriod}</method>
+      <outcome>
+        <fixed-outcome>initializeDash</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>initializeDashboard</from-activity-id>
       <control-flow-case id="__3">
@@ -37,7 +43,18 @@
       <from-activity-id>ModulesPG</from-activity-id>
       <control-flow-case id="__9">
         <from-outcome>back</from-outcome>
-        <to-activity-id>StatisticsPG</to-activity-id>
+        <to-activity-id>initializeDashboard</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__10">
+        <from-outcome>self</from-outcome>
+        <to-activity-id>ModulesPG</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__6">
+      <from-activity-id>getPeriod</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome>initializeDash</from-outcome>
+        <to-activity-id>initializeDashboard</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <page-flow-scope-behavior>

@@ -15,24 +15,24 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">239.94824</property>
+         name="y">373.24707</property>
       <property
-         name="x">438.0</property>
+         name="x">391.0</property>
    </View>
    <MethodCall
       id="MethodCall3">
       <property
          name="activityId">initializeDashboard</property>
       <property
-         name="start">true</property>
+         name="start">false</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>initializeDashboard&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+         name="description">&lt;html>&lt;p>&lt;b>initializeDashboard&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">134.59766</property>
+         name="y">82.896484</property>
       <property
-         name="x">193.0</property>
+         name="x">467.0</property>
    </MethodCall>
    <ControlFlowCase
       islink="true"
@@ -42,7 +42,7 @@
       <property
          name="fromOutcome">goToDashBoard</property>
       <property
-         name="sdm:polyPoints">R50,234.95924,134.24707,396.0407,239.59766,L50</property>
+         name="sdm:polyPoints">B50,467.0,136.5459,391.0,318.89648,T50</property>
    </ControlFlowCase>
    <View
       id="View5">
@@ -67,16 +67,51 @@
       <property
          name="fromOutcome">goToModule</property>
       <property
-         name="sdm:polyPoints">R50,479.0,239.59766,716.0,312.24707,L50</property>
+         name="sdm:polyPoints">R46,432.0,369.39648,715.25995,308.74707,L46</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
       id="ControlFlowCase8"
       from="View5"
-      to="View2">
+      to="MethodCall3">
       <property
          name="fromOutcome">back</property>
       <property
-         name="sdm:polyPoints">L54,714.949,315.74707,479.0,243.09766,R54</property>
+         name="sdm:polyPoints">L46,716.0,308.74707,470.5,136.5459,B56</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall8">
+      <property
+         name="activityId">getPeriod</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>getPeriod&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">306.59766</property>
+      <property
+         name="x">79.0</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase9"
+      from="MethodCall8"
+      to="MethodCall3">
+      <property
+         name="fromOutcome">initializeDash</property>
+      <property
+         name="sdm:polyPoints">R50,120.0,306.24707,426.0,82.5459,L50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase10"
+      from="View5"
+      to="View5">
+      <property
+         name="fromOutcome">self</property>
+      <property
+         name="sdm:polyPoints">T44,753.5,258.24707,760.5,258.24707,T56</property>
    </ControlFlowCase>
 </SDM>

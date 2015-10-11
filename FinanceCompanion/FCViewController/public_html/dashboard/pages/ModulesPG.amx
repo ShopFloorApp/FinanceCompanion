@@ -27,13 +27,84 @@
     <amx:tableLayout id="tl2" width="100%" inlineStyle="background-color: lightGrey;">
       <amx:rowLayout id="rl2">
         <amx:cellFormat id="cf6" width="100%" halign="center">
-          <amx:selectOneChoice id="soc1" valueChangeListener="#{pageFlowScope.DashboardBean.valueChangeOnEntity}">
+          <amx:selectOneChoice id="soc1" valueChangeListener="#{pageFlowScope.DashboardBean.valueChangeOnEntity}"
+                               value="#{pageFlowScope.currentEntity}">
             <amx:selectItem id="si2" label="Choose Entity"/>
             <amx:selectItems value="#{bindings.name.items}" id="si1"/>
           </amx:selectOneChoice>
         </amx:cellFormat>
       </amx:rowLayout>
     </amx:tableLayout>
-    <amx:commandButton text="commandButton1" id="cb1" inlineStyle="display:none;" />
+    <amx:spacer id="s2" height="10"/>
+    <amx:tableLayout id="tl6" width="100%">
+      <amx:rowLayout id="rl11">
+        <amx:cellFormat id="cf28" width="10px" columnSpan="1"/>
+        <amx:cellFormat id="cf27" width="100%" inlineStyle="border-bottom: 1px solid Blue;">
+          <amx:outputText value="#{pageFlowScope.currentEntity} : #{pageFlowScope.currentEntityOwner}" id="ot8" inlineStyle="color:Blue;"/>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf7" width="10px"/>
+      </amx:rowLayout>
+    </amx:tableLayout>
+    <amx:spacer id="s1" height="10"/>
+    <amx:commandButton text="commandButton1" id="cb1" inlineStyle="display:none;" action="self"/>
+        <amx:panelGroupLayout id="cardt" inlineStyle="width:100%;" halign="center"
+                              scrollPolicy="#{deviceScope.hardware.screen.diagonalSize gt 6 ? 'scroll' : 'auto'}">
+            <amx:panelGroupLayout id="cards" inlineStyle="height:100%;width:100%" scrollPolicy="scroll" layout="wrap"
+                                  >
+        <amx:listView var="row" value="#{bindings.dashboardDetails.collectionModel}"
+                      fetchSize="#{bindings.dashboardDetails.rangeSize}"
+                      selectedRowKeys="#{bindings.dashboardDetails.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.dashboardDetails.collectionModel.makeCurrent}"
+                      showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv1" layout="cards">
+          <amx:listItem id="li1" styleClass="swipelistitemStatus" showLinkIcon="false"
+                        inlineStyle="background-color:#{row.status=='0' ? 'Green':(row.status=='1'?'Orange':'Red')} !important;">
+            <amx:tableLayout width="100%" id="tl3" inlineStyle="padding-top: 15px;">
+              <amx:rowLayout id="rl4">
+                <amx:cellFormat width="10px" rowSpan="2" id="cf8"/>
+                <amx:cellFormat width="100%" id="cf9" halign="center">
+                  <amx:outputText value="#{row.module}" id="ot3" inlineStyle="font-size:small; font-weight:bold;"/>
+                </amx:cellFormat>
+              </amx:rowLayout>
+              <amx:rowLayout id="rl3">
+                <amx:cellFormat id="cf10" width="100%" halign="center">
+                  <amx:outputText value="#{row.owner}" id="ot6" inlineStyle="font-size:small; font-weight:bold;"/>
+                </amx:cellFormat>
+              </amx:rowLayout>
+            </amx:tableLayout>
+          </amx:listItem>
+        </amx:listView>
+      </amx:panelGroupLayout>
+    </amx:panelGroupLayout>
+        <amx:spacer id="s3" height="10"/>
+    <amx:tableLayout id="tl4" width="100%">
+      <amx:rowLayout id="rl5">
+        <amx:cellFormat id="cf11" width="10px" columnSpan="1"/>
+        <amx:cellFormat id="cf12" width="100%" inlineStyle="border-bottom: 1px solid Blue;">
+          <amx:outputText value="Errors" id="ot2" inlineStyle="color:Blue;"/>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf13" width="10px"/>
+      </amx:rowLayout>
+    </amx:tableLayout>
+    <amx:listView var="row" value="#{bindings.issueDetails.collectionModel}"
+                  fetchSize="#{bindings.issueDetails.rangeSize}"
+                  selectedRowKeys="#{bindings.issueDetails.collectionModel.selectedRow}"
+                  selectionListener="#{bindings.issueDetails.collectionModel.makeCurrent}" showMoreStrategy="autoScroll"
+                  bufferStrategy="viewport" id="lv2">
+      <amx:listItem id="li2" showLinkIcon="false">
+        <amx:tableLayout width="100%" id="tl5">
+          <amx:rowLayout id="rl7">
+            <amx:cellFormat width="10px" rowSpan="2" id="cf16"/>
+            <amx:cellFormat width="100%" height="#{deviceScope.device.os=='Android'?'36':'32'}px" id="cf15">
+              <amx:outputText value="#{row.issueText}" id="ot5"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout id="rl6">
+            <amx:cellFormat width="100%" height="#{deviceScope.device.os=='Android'?'22':'19'}px" id="cf14">
+              <amx:outputText value="#{row.issueCount}" styleClass="adfmf-listItem-captionText" id="ot4"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+      </amx:listItem>
+    </amx:listView>
   </amx:panelPage>
 </amx:view>
