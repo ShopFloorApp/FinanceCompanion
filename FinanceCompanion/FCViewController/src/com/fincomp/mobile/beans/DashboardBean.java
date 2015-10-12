@@ -57,11 +57,15 @@ public class DashboardBean extends SyncUtils {
 
     public void valueChangeOnEntity(ValueChangeEvent valueChangeEvent) {
         // Add event code here...
-        String entity = (String) valueChangeEvent.getNewValue();
+        getModuleInfo();
+    }
+    
+    public void getModuleInfo(){       
+        String entityName=(String)AdfmfJavaUtilities.evaluateELExpression("#{pageFlowScope.currentEntity}");
         ArrayList dash = (ArrayList) EntityDC.s_entity;
         for(int i=0;i<dash.size();i++){
             EntityBO entityBO = (EntityBO) dash.get(i);
-            if(entityBO.getEntityName().equals(entity)){
+            if(entityBO.getEntityName().equals(entityName)){
                 String owner=entityBO.getOwner();
                 AdfmfJavaUtilities.setELValue("#{pageFlowScope.currentEntityOwner}", owner);
                 break;
@@ -69,6 +73,13 @@ public class DashboardBean extends SyncUtils {
         }
         dashDC.getDashboardDetails((String)AdfmfJavaUtilities.evaluateELExpression("#{pageFlowScope.currentPeriod}"), "GL", (String)AdfmfJavaUtilities.evaluateELExpression("#{pageFlowScope.currentEntity}"));
         callButtonActionJS("cb1");
+    }
+    
+    public void getSubModuleDetails(){
+        String currentEntityName=(String)AdfmfJavaUtilities.evaluateELExpression("#{pageFlowScope.currentEntity}");
+        String currentPeriod=(String)AdfmfJavaUtilities.evaluateELExpression("#{pageFlowScope.currentPeriod}");
+        String currentModule=(String)AdfmfJavaUtilities.evaluateELExpression("#{pageFlowScope.currentModule}");
+        dashDC.getDashboardDetails(currentPeriod,currentModule,currentEntityName);
     }
     
     public void getCurrentPeriod(){

@@ -25,6 +25,21 @@
         <fixed-outcome>initializeDash</fixed-outcome>
       </outcome>
     </method-call>
+    <view id="ModuleDetailsPG">
+      <page>/dashboard/pages/ModuleDetailsPG.amx</page>
+    </view>
+    <method-call id="getModuleDetails">
+      <method>#{pageFlowScope.DashboardBean.getModuleInfo}</method>
+      <outcome>
+        <fixed-outcome>getModuleInfo</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="getSubModule">
+      <method>#{pageFlowScope.DashboardBean.getSubModuleDetails}</method>
+      <outcome>
+        <fixed-outcome>subModule</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>initializeDashboard</from-activity-id>
       <control-flow-case id="__3">
@@ -37,6 +52,7 @@
       <control-flow-case id="__5">
         <from-outcome>goToModule</from-outcome>
         <to-activity-id>ModulesPG</to-activity-id>
+        <transition>slideLeft</transition>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__8">
@@ -44,10 +60,16 @@
       <control-flow-case id="__9">
         <from-outcome>back</from-outcome>
         <to-activity-id>initializeDashboard</to-activity-id>
+        <transition>slideRight</transition>
       </control-flow-case>
       <control-flow-case id="__10">
         <from-outcome>self</from-outcome>
         <to-activity-id>ModulesPG</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__11">
+        <from-outcome>details</from-outcome>
+        <to-activity-id>getSubModule</to-activity-id>
+        <transition>slideLeft</transition>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__6">
@@ -55,6 +77,32 @@
       <control-flow-case id="__7">
         <from-outcome>initializeDash</from-outcome>
         <to-activity-id>initializeDashboard</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__12">
+      <from-activity-id>ModuleDetailsPG</from-activity-id>
+      <control-flow-case id="__13">
+        <from-outcome>self</from-outcome>
+        <to-activity-id>ModuleDetailsPG</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__14">
+        <from-outcome>back</from-outcome>
+        <to-activity-id>getModuleDetails</to-activity-id>
+        <transition>slideRight</transition>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__15">
+      <from-activity-id>getModuleDetails</from-activity-id>
+      <control-flow-case id="__16">
+        <from-outcome>getModuleInfo</from-outcome>
+        <to-activity-id>ModulesPG</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__17">
+      <from-activity-id>getSubModule</from-activity-id>
+      <control-flow-case id="__18">
+        <from-outcome>subModule</from-outcome>
+        <to-activity-id>ModuleDetailsPG</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <page-flow-scope-behavior>

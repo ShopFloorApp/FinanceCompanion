@@ -57,7 +57,8 @@
                       selectionListener="#{bindings.dashboardDetails.collectionModel.makeCurrent}"
                       showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv1" layout="cards">
           <amx:listItem id="li1" styleClass="swipelistitemStatus" showLinkIcon="false"
-                        inlineStyle="background-color:#{row.status=='0' ? 'Green':(row.status=='1'?'Orange':'Red')} !important;">
+                        inlineStyle="background-color:#{row.status=='0' ? 'rgb(60,138,45)':(row.status=='1'?'rgb(255,153,0)':'rgb(192,0,0)')} !important;"
+                        action="details">
             <amx:tableLayout width="100%" id="tl3" inlineStyle="padding-top: 15px;">
               <amx:rowLayout id="rl4">
                 <amx:cellFormat width="10px" rowSpan="2" id="cf8"/>
@@ -71,6 +72,7 @@
                 </amx:cellFormat>
               </amx:rowLayout>
             </amx:tableLayout>
+            <amx:setPropertyListener id="spl1" from="#{row.module}" to="#{pageFlowScope.currentModule}"/>
           </amx:listItem>
         </amx:listView>
       </amx:panelGroupLayout>
