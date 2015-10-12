@@ -14,5 +14,7 @@
       <adfmf:springboardFeatureReference refId="Springboard" id="sfr1"/>
     </adfmf:springboard>
   </adfmf:navigation>
-  <adfmf:login defaultConnRefId="FinanceComp"/>
+  <adfmf:login defaultConnRefId="FinanceComp">
+    <adfmf:localHTML url="Customlogin.html"/>
+  </adfmf:login>
 </adfmf:application>

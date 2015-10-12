@@ -10,6 +10,8 @@ public class EntityBO {
     private String Country;
     private String Ledger;
     private String Owner;
+    private String Email;
+    private String Phone;
     private PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
 
     public EntityBO() {
@@ -63,12 +65,34 @@ public class EntityBO {
     public void removePropertyChangeListener(PropertyChangeListener l) {
         propertyChangeSupport.removePropertyChangeListener(l);
     }
-    
+
+    public void setEmail(String Email) {
+        String oldEmail = this.Email;
+        this.Email = Email;
+        propertyChangeSupport.firePropertyChange("Email", oldEmail, Email);
+    }
+
+    public String getEmail() {
+        return Email;
+    }
+
+    public void setPhone(String Phone) {
+        String oldPhone = this.Phone;
+        this.Phone = Phone;
+        propertyChangeSupport.firePropertyChange("Phone", oldPhone, Phone);
+    }
+
+    public String getPhone() {
+        return Phone;
+    }
+
     public void setBOClassRow(HashMap hashMap) {
         this.setCountry((String) hashMap.get("country"));
         this.setEntityName((String) hashMap.get("entityname"));
         this.setLedger((String) hashMap.get("ledger"));
         this.setOwner((String) hashMap.get("owner"));
+        this.setEmail((String) hashMap.get("email"));
+        this.setPhone((String) hashMap.get("phone"));
     }
 
     public HashMap getBOClassRow(EntityBO entity) {
@@ -77,6 +101,8 @@ public class EntityBO {
         map.put("entityname", entity.getEntityName());
         map.put("ledger", entity.getLedger());
         map.put("owner", entity.getOwner());
+        map.put("email", entity.getEmail());
+        map.put("phone", entity.getPhone());
         return map;
     }
 }

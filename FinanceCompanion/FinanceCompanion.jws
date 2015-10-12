@@ -30,6 +30,9 @@
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
       <hash n="profileDefinitions">
          <hash n="Android1">
+            <hash n="android_options">
+               <value n="android_deploy_debug_mode" v="true"/>
+            </hash>
             <hash n="archiveOptions">
                <value n="hasManifest" v="true"/>
             </hash>
@@ -153,9 +156,9 @@
          </hash>
       </hash>
       <list n="profileList">
-         <string v="iOS1"/>
-         <string v="FinanceCompanion_archive"/>
          <string v="Android1"/>
+         <string v="FinanceCompanion_archive"/>
+         <string v="iOS1"/>
       </list>
    </hash>
    <hash n="oracle.jdeveloper.model.PathsConfiguration">
@@ -173,7 +176,9 @@
             </hash>
             <hash/>
          </list>
-         <list n="url-path"/>
+         <list n="url-path">
+            <url path="src/"/>
+         </list>
       </hash>
    </hash>
    <hash n="ResourceBundleOptions">

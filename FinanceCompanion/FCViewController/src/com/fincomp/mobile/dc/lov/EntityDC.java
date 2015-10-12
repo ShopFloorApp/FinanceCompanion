@@ -75,6 +75,8 @@ public class EntityDC extends SyncUtils{
                             entityItems.setEntityName((jsObject2.get("NAME").toString()));
                             entityItems.setLedger((jsObject2.get("LEDGER").toString()));
                             entityItems.setOwner((jsObject2.get("OWNER").toString()));
+                            entityItems.setEmail((jsObject2.get("EMAIL").toString()));
+                            entityItems.setPhone((jsObject2.get("PHONE").toString()));
 
                             s_entity.add(entityItems);
 
@@ -91,6 +93,8 @@ public class EntityDC extends SyncUtils{
                         entityItems.setEntityName((jsObject2.get("NAME").toString()));
                         entityItems.setLedger((jsObject2.get("LEDGER").toString()));
                         entityItems.setOwner((jsObject2.get("OWNER").toString()));
+                        entityItems.setEmail((jsObject2.get("EMAIL").toString()));
+                        entityItems.setPhone((jsObject2.get("PHONE").toString()));
                         s_entity.add(entityItems);
                         super.updateSqlLiteTable(EntityBO.class, s_entity);
                     }
