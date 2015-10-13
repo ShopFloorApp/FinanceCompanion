@@ -13,6 +13,8 @@
     <accessorIterator MasterBinding="DashboardDCIterator" Binds="dashboardDetails" RangeSize="25"
                       DataControl="DashboardDC" BeanClass="com.fincomp.mobile.pojo.dashboard.DashboardBO"
                       id="dashboardDetailsIterator"/>
+    <accessorIterator MasterBinding="DashboardDCIterator" Binds="issueDetails" RangeSize="25" DataControl="DashboardDC"
+                      BeanClass="com.fincomp.mobile.pojo.dashboard.IssueDetailsBO" id="issueDetailsIterator"/>
   </executables>
   <bindings>
     <list IterBinding="variables" id="ledger" DTSupportsMRU="true" SelectItemValueMode="ListObject"
@@ -40,6 +42,14 @@
           <Item Value="module"/>
           <Item Value="OU"/>
           <Item Value="status"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="issueDetailsIterator" id="issueDetails">
+      <nodeDefinition DefName="com.fincomp.mobile.pojo.dashboard.IssueDetailsBO" Name="issueDetails0">
+        <AttrNames>
+          <Item Value="issueText"/>
+          <Item Value="issueCount"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

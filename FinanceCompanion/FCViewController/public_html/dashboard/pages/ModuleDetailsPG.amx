@@ -39,38 +39,125 @@
       </amx:facet>
       <amx:facet name="center">
         <amx:spacer id="s2" height="10"/>
+        <amx:tableLayout id="tl6" width="100%">
+          <amx:rowLayout id="rl11">
+            <amx:cellFormat id="cf28" width="10px" columnSpan="1"/>
+            <amx:cellFormat id="cf27" width="100%" inlineStyle="border-bottom: 1px solid Blue;">
+              <amx:outputText value="#{pageFlowScope.currentModule}" id="ot8" inlineStyle="color:Blue;"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="cf11" width="10px"/>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:spacer id="s4" height="10"/>
         <amx:panelGroupLayout id="cards" scrollPolicy="scroll" layout="horizontal" halign="center"
-                              inlineStyle="min-width:100%; width:#{pageFlowScope.moduleCount*50}%;">
-          <amx:listView var="row" value="#{bindings.dashboardDetails.collectionModel}"
-                        fetchSize="#{bindings.dashboardDetails.rangeSize}"
-                        selectedRowKeys="#{bindings.dashboardDetails.collectionModel.selectedRow}"
-                        selectionListener="#{bindings.dashboardDetails.collectionModel.makeCurrent}"
-                        showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv1" rendered="false">
-            <amx:listItem id="li1" styleClass="swipelistitemStatus" showLinkIcon="false"
-                          inlineStyle="background-color:#{row.status=='0' ? 'rgb(60,138,45)':(row.status=='1'?'rgb(255,153,0)':'rgb(192,0,0)')} !important;"
-                          action="details"/>
-          </amx:listView>
-          <amx:iterator id="i1" value="#{bindings.dashboardDetails.collectionModel}" var="row">
-            <amx:tableLayout width="100%" id="tl3" styleClass="horizontalScroll"
-                             inlineStyle="background-color:#{row.status=='0' ? 'rgb(60,138,45)':(row.status=='1'?'rgb(255,153,0)':'rgb(192,0,0)')} !important;">
-              <amx:rowLayout id="rl5">
-                <amx:cellFormat width="10px" rowSpan="3" id="cf8"/>
-                <amx:cellFormat id="cf7">
-                  <amx:spacer id="s1" height="10"/>
+                              inlineStyle="width:100%;">
+          <amx:panelGroupLayout id="pgl7" inlineStyle="min-width:100%; width:#{pageFlowScope.moduleCount*50}%;"
+                                layout="horizontal">
+            <amx:iterator id="i1" value="#{bindings.dashboardDetails.collectionModel}" var="row">
+              <amx:tableLayout width="100%" id="tl3" styleClass="horizontalScroll"
+                               inlineStyle="background-color:#{row.status=='0' ? 'rgb(60,138,45)':(row.status=='1'?'rgb(255,153,0)':'rgb(192,0,0)')} !important;">
+                <amx:rowLayout id="rl5">
+                  <amx:cellFormat width="10px" rowSpan="3" id="cf8"/>
+                  <amx:cellFormat id="cf7">
+                    <amx:spacer id="s1" height="10"/>
+                  </amx:cellFormat>
+                </amx:rowLayout>
+                <amx:rowLayout id="rl4">
+                  <amx:cellFormat width="100%" id="cf9" halign="center">
+                    <amx:outputText value="#{row.invOrg}" id="ot3" inlineStyle="font-size:small; font-weight:bold;"/>
+                  </amx:cellFormat>
+                </amx:rowLayout>
+                <amx:rowLayout id="rl3">
+                  <amx:cellFormat id="cf10" width="100%" halign="center">
+                    <amx:outputText value="#{row.owner}" id="ot6" inlineStyle="font-size:small; font-weight:bold;"/>
+                  </amx:cellFormat>
+                </amx:rowLayout>
+              </amx:tableLayout>
+            </amx:iterator>
+          </amx:panelGroupLayout>
+        </amx:panelGroupLayout>
+        <amx:spacer id="s3" height="15"/>
+        <amx:panelGroupLayout id="pgl6" inlineStyle="width:100%">
+          <amx:tableLayout id="tl4" width="100%">
+            <amx:rowLayout id="rl6">
+              <amx:cellFormat id="cf13" width="10px" columnSpan="1"/>
+              <amx:cellFormat id="cf12" width="100%" inlineStyle="border-bottom: 1px solid Blue;">
+                <amx:outputText value="Period Close Error Summary" id="ot2" inlineStyle="color:Blue;"/>
+              </amx:cellFormat>
+              <amx:cellFormat id="cf14" width="10px"/>
+            </amx:rowLayout>
+          </amx:tableLayout>
+          <amx:spacer id="s5" height="10"/>
+          <amx:panelGroupLayout id="pgl1" halign="center" inlineStyle="width:100%;">
+            <amx:tableLayout id="tl5" width="100%"
+                             inlineStyle="box-shadow:  0 1px 5px   #000000 !important; background-color:Darkblue; width:80%;"
+                             halign="center">
+              <amx:rowLayout id="rl7">
+                <amx:cellFormat id="cf15" width="10px" rowSpan="2"/>
+                <amx:cellFormat id="cf17" width="45%"
+                                inlineStyle="padding:5px;border-bottom: 1px solid #FFFFFF;border-right: 1px solid #FFFFFF;">
+                  <amx:panelGroupLayout id="pgl2" halign="center">
+                    <amx:outputText value="4" id="ot4" styleClass="txtCountMarker"/>
+                    <amx:outputText value="Interface Error" id="ot5" styleClass="txtCountLable"/>
+                  </amx:panelGroupLayout>
                 </amx:cellFormat>
-              </amx:rowLayout>
-              <amx:rowLayout id="rl4">
-                <amx:cellFormat width="100%" id="cf9" halign="center">
-                  <amx:outputText value="#{row.module}" id="ot3" inlineStyle="font-size:small; font-weight:bold;"/>
+                <amx:cellFormat id="cf18" halign="end" width="45%" inlineStyle="padding:5px">
+                  <amx:panelGroupLayout id="pgl3" halign="center">
+                    <amx:outputText value="56" id="ot7" styleClass="txtCountMarker"/>
+                    <amx:outputText value="Unposted Error" id="ot9" styleClass="txtCountLable"/>
+                  </amx:panelGroupLayout>
                 </amx:cellFormat>
+                <amx:cellFormat id="cf16" width="10px" rowSpan="2"/>
               </amx:rowLayout>
-              <amx:rowLayout id="rl3">
-                <amx:cellFormat id="cf10" width="100%" halign="center">
-                  <amx:outputText value="#{row.owner}" id="ot6" inlineStyle="font-size:small; font-weight:bold;"/>
+              <amx:rowLayout id="rl9">
+                <amx:cellFormat id="cf19" width="45%"
+                                inlineStyle="padding:5px;">
+                  <amx:panelGroupLayout id="pgl4" halign="center">
+                    <amx:outputText value="432" id="ot10" styleClass="txtCountMarker"/>
+                    <amx:outputText value="Period Status" id="ot11" styleClass="txtCountLable"/>
+                  </amx:panelGroupLayout>
+                </amx:cellFormat>
+                <amx:cellFormat id="cf20" halign="end" width="45%"
+                                inlineStyle="padding:5px;border-top: 1px solid #FFFFFF;border-left: 1px solid #FFFFFF;">
+                  <amx:panelGroupLayout id="pgl5" halign="center">
+                    <amx:outputText value="5674" id="ot12" styleClass="txtCountMarker"/>
+                    <amx:outputText value="Misc Issues" id="ot13" styleClass="txtCountLable"/>
+                  </amx:panelGroupLayout>
                 </amx:cellFormat>
               </amx:rowLayout>
             </amx:tableLayout>
-          </amx:iterator>
+          </amx:panelGroupLayout>
+          <amx:spacer id="s6" height="15"/>
+          <amx:tableLayout id="tl7" width="100%">
+            <amx:rowLayout id="rl8">
+              <amx:cellFormat id="cf21" width="10px" columnSpan="1"/>
+              <amx:cellFormat id="cf22" width="100%" inlineStyle="border-bottom: 1px solid Blue;">
+                <amx:outputText value="Errors" id="ot14" inlineStyle="color:Blue;"/>
+              </amx:cellFormat>
+              <amx:cellFormat id="cf23" width="10px"/>
+            </amx:rowLayout>
+          </amx:tableLayout>
+          <amx:listView var="row" value="#{bindings.issueDetails.collectionModel}"
+                        fetchSize="#{bindings.issueDetails.rangeSize}"
+                        selectedRowKeys="#{bindings.issueDetails.collectionModel.selectedRow}"
+                        selectionListener="#{bindings.issueDetails.collectionModel.makeCurrent}"
+                        showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv1">
+            <amx:listItem id="li1" showLinkIcon="false">
+              <amx:tableLayout width="100%" id="tl8">
+                <amx:rowLayout id="rl12">
+                  <amx:cellFormat width="10px" rowSpan="2" id="cf25"/>
+                  <amx:cellFormat width="100%" height="#{deviceScope.device.os=='Android'?'36':'32'}px" id="cf26">
+                    <amx:outputText value="#{row.issueText}" id="ot16"/>
+                  </amx:cellFormat>
+                </amx:rowLayout>
+                <amx:rowLayout id="rl10">
+                  <amx:cellFormat width="100%" height="#{deviceScope.device.os=='Android'?'22':'19'}px" id="cf24">
+                    <amx:outputText value="#{row.issueCount}" styleClass="adfmf-listItem-captionText" id="ot15"/>
+                  </amx:cellFormat>
+                </amx:rowLayout>
+              </amx:tableLayout>
+            </amx:listItem>
+          </amx:listView>
         </amx:panelGroupLayout>
       </amx:facet>
     </amx:panelStretchLayout>

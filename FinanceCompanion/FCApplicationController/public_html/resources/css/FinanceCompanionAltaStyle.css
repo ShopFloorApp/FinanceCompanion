@@ -177,3 +177,15 @@
 .fcStretchLyt .amx-panelStretchLayout_center{
     overflow: auto;
 }
+
+.txtCountMarker{
+    font-size: large;
+    font-weight: bold;
+    color: White;
+}
+
+.txtCountLable{
+    font-size: small;
+    font-weight: bold;
+    color: White;
+}
