@@ -30,148 +30,147 @@
         </amx:rowLayout>
       </amx:tableLayout>
     </amx:facet>
-    <amx:tableLayout id="tl2" width="100%" inlineStyle="background-color: lightGrey;">
-      <amx:rowLayout id="rl2">
-        <amx:cellFormat id="cf6" width="100%" halign="center">
-          <amx:selectOneChoice id="soc1" valueChangeListener="#{pageFlowScope.DashboardBean.valueChangeOnEntity}"
-                               value="#{pageFlowScope.currentEntity}">
-            <amx:selectItem id="si2" label="Choose Entity"/>
-            <amx:selectItems value="#{bindings.name.items}" id="si1"/>
-          </amx:selectOneChoice>
-        </amx:cellFormat>
-      </amx:rowLayout>
-    </amx:tableLayout>
-    <amx:commandButton text="commandButton1" id="cb1" inlineStyle="display:none;" action="goToModule"/>
-    <amx:spacer id="s2" height="10"/>
-    <amx:tableLayout id="tl6" width="100%">
-      <amx:rowLayout id="rl11">
-        <amx:cellFormat id="cf28" width="10px" columnSpan="1"/>
-        <amx:cellFormat id="cf27" width="100%" inlineStyle="border-bottom: 1px solid Blue;">
-          <amx:outputText value="Status" id="ot8" inlineStyle="color:Blue;"/>
-        </amx:cellFormat>
-        <amx:cellFormat id="cf7" width="10px"/>
-      </amx:rowLayout>
-    </amx:tableLayout>
-    <amx:spacer id="s1" height="10"/>
-    <amx:tableLayout id="tl3" width="100%">
-      <amx:rowLayout id="rl3">
-        <amx:cellFormat id="cf19" width="10px"/>
-        <amx:cellFormat id="cf8" width="60%" inlineStyle="border-bottom: 4px solid rgb(60,138,45);">
-          <amx:outputText value="Entity with no close issues" id="ot2"
-                          inlineStyle="font-size:small; font-weight:bold;color:Grey;"/>
-        </amx:cellFormat>
-        <amx:cellFormat id="cf9" width="40%" halign="center" inlineStyle="border-bottom: 4px solid rgb(60,138,45);">
-          <amx:outputText value="#{pageFlowScope.noCloseIssues}" id="ot3"
-                          inlineStyle="font-size:large; font-weight:bold; color:rgb(60,138,45);"/>
-        </amx:cellFormat>
-        <amx:cellFormat id="cf10" width="10px"/>
-      </amx:rowLayout>
-      <amx:rowLayout id="rl6">
-                                    <amx:cellFormat id="cf22" inlineStyle="border: 1px solid #FFFFFF;" width="100%"
-                                                    columnSpan="6"/>
-                                </amx:rowLayout>
-                                      <amx:rowLayout id="rl12">
-                                    <amx:cellFormat id="cf29" inlineStyle="border: 1px solid #D6C9C9;" width="100%"
-                                                    columnSpan="6"/>
-                                </amx:rowLayout>
-    </amx:tableLayout>
-    <amx:spacer id="s1e" height="5"/>
-    <amx:tableLayout id="tl4" width="100%">
-      <amx:rowLayout id="rl4">
-        <amx:cellFormat id="cf20" width="10px"/>
-        <amx:cellFormat id="cf12" width="60%" inlineStyle="border-bottom: 4px solid rgb(255,153,0);">
-          <amx:outputText value="Entity with close warning" id="ot4"
-                          inlineStyle="font-size:small; font-weight:bold;color:Grey;"/>
-        </amx:cellFormat>
-        <amx:cellFormat id="cf13" width="40%" halign="center" inlineStyle="border-bottom: 4px solid rgb(255,153,0);">
-          <amx:outputText value="#{pageFlowScope.closeWarnings}" id="ot5"
-                          inlineStyle="font-size:large; font-weight:bold; color:rgb(255,153,0);"/>
-        </amx:cellFormat>
-        <amx:cellFormat id="cf14" width="10px"/>
-      </amx:rowLayout>
-      <amx:rowLayout id="rl7">
-                                    <amx:cellFormat id="cf23" inlineStyle="border: 1px solid #FFFFFF;" width="100%"
-                                                    columnSpan="5"/>
-                                </amx:rowLayout>
-                                      <amx:rowLayout id="rl8">
-                                    <amx:cellFormat id="cf24" inlineStyle="border: 1px solid #D6C9C9;" width="100%"
-                                                    columnSpan="5"/>
-                                </amx:rowLayout>
-    </amx:tableLayout>
-    <amx:spacer id="s1e5" height="5"/>
-    <amx:tableLayout id="tl5" width="100%">
-      <amx:rowLayout id="rl5">
-        <amx:cellFormat id="cf21" width="10px"/>
-        <amx:cellFormat id="cf16" width="60%" inlineStyle="border-bottom: 4px solid rgb(192,0,0);">
-          <amx:outputText value="Entity with close issues" id="ot6"
-                          inlineStyle="font-size:small; font-weight:bold;color:Grey;"/>
-        </amx:cellFormat>
-        <amx:cellFormat id="cf17" width="40%" halign="center" inlineStyle="border-bottom: 4px solid rgb(192,0,0);">
-          <amx:outputText value="#{pageFlowScope.closeIssues}" id="ot7"
-                          inlineStyle="font-size:large; font-weight:bold; color:rgb(192,0,0);"/>
-        </amx:cellFormat>
-        <amx:cellFormat id="cf18" width="10px"/>
-      </amx:rowLayout>
-      <amx:rowLayout id="rl9">
-                                    <amx:cellFormat id="cf25" inlineStyle="border: 1px solid #FFFFFF;" width="100%"
-                                                    columnSpan="5"/>
-                                </amx:rowLayout>
-                                      <amx:rowLayout id="rl10">
-                                    <amx:cellFormat id="cf26" inlineStyle="border: 1px solid #D6C9C9;" width="100%"
-                                                    columnSpan="5"/>
-                                </amx:rowLayout>
-    </amx:tableLayout>
-    <amx:spacer id="s3" height="20"/>
-        <amx:tableLayout id="tl7" width="100%">
-      <amx:rowLayout id="rl13">
-        <amx:cellFormat id="cf11" width="10px" columnSpan="1"/>
-        <amx:cellFormat id="cf15" width="100%" inlineStyle="border-bottom: 1px solid Blue;">
-          <amx:outputText value="Top Entities with close issues" id="ot9" inlineStyle="color:Blue;"/>
-        </amx:cellFormat>
-        <amx:cellFormat id="cf30" width="10px"/>
-      </amx:rowLayout>
-    </amx:tableLayout>
-    <dvtm:barChart var="row" value="#{bindings.dashboardDetails.collectionModel}" id="bc1" seriesEffect="gradient"
-                   inlineStyle="height:150px;">
-      <amx:facet name="dataStamp">
-        <dvtm:chartDataItem group="#{row.entity}" value="#{row.issueCount}"
-                            series="#{bindings.dashboardDetails.hints.issueCount.label}" id="cdi1"
-                            label="#{row.issueCount}"/>
-      </amx:facet>
-      <dvtm:legend rendered="false" id="l1"/>
-    </dvtm:barChart>
-    <amx:spacer id="s4" height="10"/>
-        <amx:tableLayout id="tl8" width="100%">
-      <amx:rowLayout id="rl14">
-        <amx:cellFormat id="cf31" width="10px" columnSpan="1"/>
-        <amx:cellFormat id="cf32" width="100%" inlineStyle="border-bottom: 1px solid Blue;">
-          <amx:outputText value="Top Close issues" id="ot10" inlineStyle="color:Blue;"/>
-        </amx:cellFormat>
-        <amx:cellFormat id="cf33" width="10px"/>
-      </amx:rowLayout>
-    </amx:tableLayout>
-    <amx:listView var="row" value="#{bindings.issueDetails.collectionModel}"
-                  fetchSize="#{bindings.issueDetails.rangeSize}"
-                  selectedRowKeys="#{bindings.issueDetails.collectionModel.selectedRow}"
-                  selectionListener="#{bindings.issueDetails.collectionModel.makeCurrent}" showMoreStrategy="autoScroll"
-                  bufferStrategy="viewport" id="lv1">
-      <amx:listItem id="li1" showLinkIcon="false"
-                    inlineStyle="">
-        <amx:tableLayout width="100%" id="tl9">
-          <amx:rowLayout id="rl16">
-            <amx:cellFormat width="10px" rowSpan="2" id="cf36"/>
-            <amx:cellFormat width="70%" height="#{deviceScope.device.os=='Android'?'36':'32'}px" id="cf35">
-              <amx:outputText value="#{row.issueText}" id="ot12"
-                              inlineStyle="font-size:small;}"/>
+    <amx:panelStretchLayout id="psl1" styleClass="fcStretchLyt">
+      <amx:facet name="top">
+        <amx:tableLayout id="tl2" width="100%" inlineStyle="background-color: lightGrey;">
+          <amx:rowLayout id="rl2">
+            <amx:cellFormat id="cf6" width="100%" halign="center">
+              <amx:selectOneChoice id="soc1" valueChangeListener="#{pageFlowScope.DashboardBean.valueChangeOnEntity}"
+                                   value="#{pageFlowScope.currentEntity}">
+                <amx:selectItem id="si2" label="Choose Entity"/>
+                <amx:selectItems value="#{bindings.name.items}" id="si1"/>
+              </amx:selectOneChoice>
             </amx:cellFormat>
-                        <amx:cellFormat width="30%" height="#{deviceScope.device.os=='Android'?'36':'32'}px" id="cf34"
-                                        halign="center">
-              <amx:outputText value="#{row.issueCount}" id="ot11" inlineStyle="font-size:small;"/>
-            </amx:cellFormat>
-            <amx:cellFormat width="10px" rowSpan="2" id="cf37"/>
           </amx:rowLayout>
         </amx:tableLayout>
-      </amx:listItem>
-    </amx:listView>
+      </amx:facet>
+      <amx:facet name="center">
+        <amx:commandButton text="commandButton1" id="cb1" inlineStyle="display:none;" action="goToModule"/>
+        <amx:spacer id="s2" height="10"/>
+        <amx:tableLayout id="tl6" width="100%">
+          <amx:rowLayout id="rl11">
+            <amx:cellFormat id="cf28" width="10px" columnSpan="1"/>
+            <amx:cellFormat id="cf27" width="100%" inlineStyle="border-bottom: 1px solid Blue;">
+              <amx:outputText value="Status" id="ot8" inlineStyle="color:Blue;"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="cf7" width="10px"/>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:spacer id="s1" height="10"/>
+        <amx:tableLayout id="tl3" width="100%">
+          <amx:rowLayout id="rl3">
+            <amx:cellFormat id="cf19" width="10px"/>
+            <amx:cellFormat id="cf8" width="60%" inlineStyle="border-bottom: 4px solid rgb(60,138,45);">
+              <amx:outputText value="Entity with no close issues" id="ot2"
+                              inlineStyle="font-size:small; font-weight:bold;color:Grey;"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="cf9" width="40%" halign="center" inlineStyle="border-bottom: 4px solid rgb(60,138,45);">
+              <amx:outputText value="#{pageFlowScope.noCloseIssues}" id="ot3"
+                              inlineStyle="font-size:large; font-weight:bold; color:rgb(60,138,45);"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="cf10" width="10px"/>
+          </amx:rowLayout>
+          <amx:rowLayout id="rl6">
+            <amx:cellFormat id="cf22" inlineStyle="border: 1px solid #FFFFFF;" width="100%" columnSpan="6"/>
+          </amx:rowLayout>
+          <amx:rowLayout id="rl12">
+            <amx:cellFormat id="cf29" inlineStyle="border: 1px solid #D6C9C9;" width="100%" columnSpan="6"/>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:spacer id="s1e" height="5"/>
+        <amx:tableLayout id="tl4" width="100%">
+          <amx:rowLayout id="rl4">
+            <amx:cellFormat id="cf20" width="10px"/>
+            <amx:cellFormat id="cf12" width="60%" inlineStyle="border-bottom: 4px solid rgb(255,153,0);">
+              <amx:outputText value="Entity with close warning" id="ot4"
+                              inlineStyle="font-size:small; font-weight:bold;color:Grey;"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="cf13" width="40%" halign="center"
+                            inlineStyle="border-bottom: 4px solid rgb(255,153,0);">
+              <amx:outputText value="#{pageFlowScope.closeWarnings}" id="ot5"
+                              inlineStyle="font-size:large; font-weight:bold; color:rgb(255,153,0);"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="cf14" width="10px"/>
+          </amx:rowLayout>
+          <amx:rowLayout id="rl7">
+            <amx:cellFormat id="cf23" inlineStyle="border: 1px solid #FFFFFF;" width="100%" columnSpan="5"/>
+          </amx:rowLayout>
+          <amx:rowLayout id="rl8">
+            <amx:cellFormat id="cf24" inlineStyle="border: 1px solid #D6C9C9;" width="100%" columnSpan="5"/>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:spacer id="s1e5" height="5"/>
+        <amx:tableLayout id="tl5" width="100%">
+          <amx:rowLayout id="rl5">
+            <amx:cellFormat id="cf21" width="10px"/>
+            <amx:cellFormat id="cf16" width="60%" inlineStyle="border-bottom: 4px solid rgb(192,0,0);">
+              <amx:outputText value="Entity with close issues" id="ot6"
+                              inlineStyle="font-size:small; font-weight:bold;color:Grey;"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="cf17" width="40%" halign="center" inlineStyle="border-bottom: 4px solid rgb(192,0,0);">
+              <amx:outputText value="#{pageFlowScope.closeIssues}" id="ot7"
+                              inlineStyle="font-size:large; font-weight:bold; color:rgb(192,0,0);"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="cf18" width="10px"/>
+          </amx:rowLayout>
+          <amx:rowLayout id="rl9">
+            <amx:cellFormat id="cf25" inlineStyle="border: 1px solid #FFFFFF;" width="100%" columnSpan="5"/>
+          </amx:rowLayout>
+          <amx:rowLayout id="rl10">
+            <amx:cellFormat id="cf26" inlineStyle="border: 1px solid #D6C9C9;" width="100%" columnSpan="5"/>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:spacer id="s3" height="20"/>
+        <amx:tableLayout id="tl7" width="100%">
+          <amx:rowLayout id="rl13">
+            <amx:cellFormat id="cf11" width="10px" columnSpan="1"/>
+            <amx:cellFormat id="cf15" width="100%" inlineStyle="border-bottom: 1px solid Blue;">
+              <amx:outputText value="Top Entities with close issues" id="ot9" inlineStyle="color:Blue;"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="cf30" width="10px"/>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <dvtm:barChart var="row" value="#{bindings.dashboardDetails.collectionModel}" id="bc1" seriesEffect="gradient"
+                       inlineStyle="height:150px;">
+          <amx:facet name="dataStamp">
+            <dvtm:chartDataItem group="#{row.entity}" value="#{row.issueCount}"
+                                series="#{bindings.dashboardDetails.hints.issueCount.label}" id="cdi1"
+                                label="#{row.issueCount}"/>
+          </amx:facet>
+          <dvtm:legend rendered="false" id="l1"/>
+        </dvtm:barChart>
+        <amx:spacer id="s4" height="10"/>
+        <amx:tableLayout id="tl8" width="100%">
+          <amx:rowLayout id="rl14">
+            <amx:cellFormat id="cf31" width="10px" columnSpan="1"/>
+            <amx:cellFormat id="cf32" width="100%" inlineStyle="border-bottom: 1px solid Blue;">
+              <amx:outputText value="Top Close issues" id="ot10" inlineStyle="color:Blue;"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="cf33" width="10px"/>
+          </amx:rowLayout>
+        </amx:tableLayout>
+        <amx:listView var="row" value="#{bindings.issueDetails.collectionModel}"
+                      fetchSize="#{bindings.issueDetails.rangeSize}"
+                      selectedRowKeys="#{bindings.issueDetails.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.issueDetails.collectionModel.makeCurrent}"
+                      showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv1">
+          <amx:listItem id="li1" showLinkIcon="false" inlineStyle="">
+            <amx:tableLayout width="100%" id="tl9">
+              <amx:rowLayout id="rl16">
+                <amx:cellFormat width="10px" rowSpan="2" id="cf36"/>
+                <amx:cellFormat width="70%" height="#{deviceScope.device.os=='Android'?'36':'32'}px" id="cf35">
+                  <amx:outputText value="#{row.issueText}" id="ot12" inlineStyle="font-size:small;}"/>
+                </amx:cellFormat>
+                <amx:cellFormat width="30%" height="#{deviceScope.device.os=='Android'?'36':'32'}px" id="cf34"
+                                halign="center">
+                  <amx:outputText value="#{row.issueCount}" id="ot11" inlineStyle="font-size:small;"/>
+                </amx:cellFormat>
+                <amx:cellFormat width="10px" rowSpan="2" id="cf37"/>
+              </amx:rowLayout>
+            </amx:tableLayout>
+          </amx:listItem>
+        </amx:listView>
+      </amx:facet>
+    </amx:panelStretchLayout>
   </amx:panelPage>
 </amx:view>

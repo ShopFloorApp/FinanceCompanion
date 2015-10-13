@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.23.11" id="ModuleDetailsPGPageDef"
+                Package="dashboard.pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variable Name="ledgerLovVar" Type="java.lang.String"/>
+    </variableIterator>
+    <iterator Binds="root" RangeSize="25" DataControl="LedgerDC" id="LedgerDCIterator"/>
+    <accessorIterator MasterBinding="LedgerDCIterator" Binds="ledger" RangeSize="-1" DataControl="LedgerDC"
+                      BeanClass="com.fincomp.mobile.pojo.lov.LedgerBO" id="ledgerIterator"/>
+    <iterator Binds="root" RangeSize="25" DataControl="DashboardDC" id="DashboardDCIterator"/>
+    <accessorIterator MasterBinding="DashboardDCIterator" Binds="dashboardDetails" RangeSize="25"
+                      DataControl="DashboardDC" BeanClass="com.fincomp.mobile.pojo.dashboard.DashboardBO"
+                      id="dashboardDetailsIterator"/>
+  </executables>
+  <bindings>
+    <list IterBinding="variables" id="ledger" DTSupportsMRU="true" SelectItemValueMode="ListObject"
+          StaticList="false" ListIter="ledgerIterator"
+          NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+          NullValueFlag="start">
+      <AttrNames>
+        <Item Value="ledgerLovVar"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="ledger"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="ledger"/>
+      </ListDisplayAttrNames>
+    </list>
+    <tree IterBinding="dashboardDetailsIterator" id="dashboardDetails">
+      <nodeDefinition DefName="com.fincomp.mobile.pojo.dashboard.DashboardBO" Name="dashboardDetails0">
+        <AttrNames>
+          <Item Value="invOrg"/>
+          <Item Value="owner"/>
+          <Item Value="entity"/>
+          <Item Value="issueCount"/>
+          <Item Value="ledger"/>
+          <Item Value="module"/>
+          <Item Value="OU"/>
+          <Item Value="status"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

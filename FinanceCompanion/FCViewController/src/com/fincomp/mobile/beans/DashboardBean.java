@@ -79,7 +79,8 @@ public class DashboardBean extends SyncUtils {
         String currentEntityName=(String)AdfmfJavaUtilities.evaluateELExpression("#{pageFlowScope.currentEntity}");
         String currentPeriod=(String)AdfmfJavaUtilities.evaluateELExpression("#{pageFlowScope.currentPeriod}");
         String currentModule=(String)AdfmfJavaUtilities.evaluateELExpression("#{pageFlowScope.currentModule}");
-        dashDC.getDashboardDetails(currentPeriod,currentModule,currentEntityName);
+//        dashDC.getDashboardDetails(currentPeriod,currentModule,currentEntityName);
+        AdfmfJavaUtilities.setELValue("#{pageFlowScope.moduleCount}", dashDC.s_dashboardEntity.size());
     }
     
     public void getCurrentPeriod(){

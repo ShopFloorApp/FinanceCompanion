@@ -24,16 +24,55 @@
         </amx:rowLayout>
       </amx:tableLayout>
     </amx:facet>
-    <amx:tableLayout id="tl2" width="100%" inlineStyle="background-color: lightGrey;">
-      <amx:rowLayout id="rl2">
-        <amx:cellFormat id="cf6" width="100%" halign="center">
-          <amx:selectOneChoice id="soc1" 
-                               value="#{pageFlowScope.currentLedger}">
-            <amx:selectItem id="si2" label="Choose Ledger"/>
-          </amx:selectOneChoice>
-        </amx:cellFormat>
-      </amx:rowLayout>
-    </amx:tableLayout>
-    <amx:spacer id="s2" height="10"/>
+    <amx:panelStretchLayout id="psl1" styleClass="fcStretchLyt">
+      <amx:facet name="top">
+        <amx:tableLayout id="tl2" width="100%" inlineStyle="background-color:lightGrey; ">
+          <amx:rowLayout id="rl2">
+            <amx:cellFormat id="cf6" width="100%" halign="center">
+              <amx:selectOneChoice id="soc1" value="#{pageFlowScope.currentLedger}">
+                <amx:selectItem id="si2" label="Choose Ledger"/>
+                <amx:selectItems value="#{bindings.ledger.items}" id="si1"/>
+              </amx:selectOneChoice>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+      </amx:facet>
+      <amx:facet name="center">
+        <amx:spacer id="s2" height="10"/>
+        <amx:panelGroupLayout id="cards" scrollPolicy="scroll" layout="horizontal" halign="center"
+                              inlineStyle="min-width:100%; width:#{pageFlowScope.moduleCount*50}%;">
+          <amx:listView var="row" value="#{bindings.dashboardDetails.collectionModel}"
+                        fetchSize="#{bindings.dashboardDetails.rangeSize}"
+                        selectedRowKeys="#{bindings.dashboardDetails.collectionModel.selectedRow}"
+                        selectionListener="#{bindings.dashboardDetails.collectionModel.makeCurrent}"
+                        showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv1" rendered="false">
+            <amx:listItem id="li1" styleClass="swipelistitemStatus" showLinkIcon="false"
+                          inlineStyle="background-color:#{row.status=='0' ? 'rgb(60,138,45)':(row.status=='1'?'rgb(255,153,0)':'rgb(192,0,0)')} !important;"
+                          action="details"/>
+          </amx:listView>
+          <amx:iterator id="i1" value="#{bindings.dashboardDetails.collectionModel}" var="row">
+            <amx:tableLayout width="100%" id="tl3" styleClass="horizontalScroll"
+                             inlineStyle="background-color:#{row.status=='0' ? 'rgb(60,138,45)':(row.status=='1'?'rgb(255,153,0)':'rgb(192,0,0)')} !important;">
+              <amx:rowLayout id="rl5">
+                <amx:cellFormat width="10px" rowSpan="3" id="cf8"/>
+                <amx:cellFormat id="cf7">
+                  <amx:spacer id="s1" height="10"/>
+                </amx:cellFormat>
+              </amx:rowLayout>
+              <amx:rowLayout id="rl4">
+                <amx:cellFormat width="100%" id="cf9" halign="center">
+                  <amx:outputText value="#{row.module}" id="ot3" inlineStyle="font-size:small; font-weight:bold;"/>
+                </amx:cellFormat>
+              </amx:rowLayout>
+              <amx:rowLayout id="rl3">
+                <amx:cellFormat id="cf10" width="100%" halign="center">
+                  <amx:outputText value="#{row.owner}" id="ot6" inlineStyle="font-size:small; font-weight:bold;"/>
+                </amx:cellFormat>
+              </amx:rowLayout>
+            </amx:tableLayout>
+          </amx:iterator>
+        </amx:panelGroupLayout>
+      </amx:facet>
+    </amx:panelStretchLayout>
   </amx:panelPage>
 </amx:view>

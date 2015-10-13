@@ -10,14 +10,17 @@
     <page path="/dashboard/pages/StatisticsPG.amx" usageId="com_fincomp_mobile_StatisticsPGPageDef"/>
     <page path="/Springboard/SpringboardPG.amx" usageId="com_fincomp_mobile_SpringboardPGPageDef"/>
     <page path="/dashboard/pages/ModulesPG.amx" usageId="com_fincomp_mobile_ModulesPGPageDef"/>
+    <page path="/dashboard/pages/ModuleDetailsPG.amx" usageId="com_fincomp_mobile_ModuleDetailsPGPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_fincomp_mobile_SyncPGPageDef" path="sync.SyncPGPageDef"/>
     <page id="com_fincomp_mobile_StatisticsPGPageDef" path="dashboard.pages.StatisticsPGPageDef"/>
     <page id="com_fincomp_mobile_SpringboardPGPageDef" path="Springboard.SpringboardPGPageDef"/>
     <page id="com_fincomp_mobile_ModulesPGPageDef" path="dashboard.pages.ModulesPGPageDef"/>
+    <page id="com_fincomp_mobile_ModuleDetailsPGPageDef" path="dashboard.pages.ModuleDetailsPGPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
+    <dc id="LedgerDC" path="com.fincomp.mobile.LedgerDC"/>
     <dc id="DashboardDC" path="com.fincomp.mobile.DashboardDC"/>
     <dc id="EntityDC" path="com.fincomp.mobile.EntityDC"/>
     <dc id="ApplicationFeatures" path="com.fincomp.application.ApplicationFeatures"/>
