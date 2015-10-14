@@ -102,7 +102,7 @@ public class DashboardBean extends SyncUtils {
         int perStatus = 0;
         int miscIssue = 0;
         if (subModule.trim().equals("")) {
-            for (int i = 0; i <= summaryList.size(); i++) {
+            for (int i = 0; i < summaryList.size(); i++) {
                 IssueDetailsBO dashBO = (IssueDetailsBO) summaryList.get(i);
                 if (dashBO.getIssueCateg().equalsIgnoreCase("Interface Errors")) {
                     intfError = intfError + Integer.parseInt(dashBO.getIssueCount());
@@ -115,7 +115,7 @@ public class DashboardBean extends SyncUtils {
                 }
             }
         } else {
-            for (int i = 0; i <= summaryList.size(); i++) {
+            for (int i = 0; i < summaryList.size(); i++) {
                 IssueDetailsBO dashBO = (IssueDetailsBO) summaryList.get(i);
                 if (dashBO.getIssueCateg().equalsIgnoreCase("Interface Errors") &&
                     dashBO.getModule().equalsIgnoreCase(subModule)) {
@@ -181,5 +181,11 @@ public class DashboardBean extends SyncUtils {
     public void returnFromModuleDetails(ActionEvent actionEvent) {
         // Add event code here...
         AdfmfJavaUtilities.setELValue("#{pageFlowScope.currentSubModule}",null);
+    }
+
+    public void subModuleValueChange(ValueChangeEvent valueChangeEvent) {
+        // Add event code here...
+        String subModule = (String) AdfmfJavaUtilities.evaluateELExpression("#{pageFlowScope.currentSubModule}");
+        callButtonActionJS("cb1");
     }
 }

@@ -25,28 +25,33 @@
         </amx:rowLayout>
       </amx:tableLayout>
     </amx:facet>
+    <amx:commandButton text="commandButton1" id="cb1" inlineStyle="display:none;" action="self"/>
     <amx:panelStretchLayout id="psl1" styleClass="fcStretchLyt">
       <amx:facet name="top">
         <amx:tableLayout id="tl2" width="100%" inlineStyle="background-color:lightGrey; ">
           <amx:rowLayout id="rl2">
             <amx:cellFormat id="cf6" width="100%" halign="center">
               <amx:selectOneChoice id="soc1" value="#{pageFlowScope.currentSubModule}"
-                                   rendered="#{pageFlowScope.currentModule=='General Ledger'}">
+                                   rendered="#{pageFlowScope.currentModule=='General Ledger'}"
+                                   valueChangeListener="#{pageFlowScope.DashboardBean.subModuleValueChange}">
                 <amx:selectItem id="si2" label="Choose Ledger"/>
                 <amx:selectItems value="#{bindings.ledger.items}" id="si1"/>
               </amx:selectOneChoice>
               <amx:selectOneChoice value="#{pageFlowScope.currentSubModule}"
-                                   id="soc2" rendered="#{pageFlowScope.currentModule=='Assets'}">
+                                   id="soc2" rendered="#{pageFlowScope.currentModule=='Assets'}"
+                                   valueChangeListener="#{pageFlowScope.DashboardBean.subModuleValueChange}">
                 <amx:selectItem id="si4" label="Choose Asset"/>
                 <amx:selectItems value="#{bindings.FABookName.items}" id="si3"/>
               </amx:selectOneChoice>
               <amx:selectOneChoice value="#{pageFlowScope.currentSubModule}"  id="soc3"
-                                   rendered="#{pageFlowScope.currentModule=='Inventory'}">
+                                   rendered="#{pageFlowScope.currentModule=='Inventory'}"
+                                   valueChangeListener="#{pageFlowScope.DashboardBean.subModuleValueChange}">
                 <amx:selectItem id="si6" label="Choose Inv Org"/>
                 <amx:selectItems value="#{bindings.orgName.items}" id="si5"/>
               </amx:selectOneChoice>
               <amx:selectOneChoice value="#{pageFlowScope.currentSubModule}"  id="soc4"
-                                   rendered="#{pageFlowScope.currentModule!='General Ledger'} || #{pageFlowScope.currentModule!='Assets'} || #{pageFlowScope.currentModule!='Inventory'}">
+                                   rendered="#{pageFlowScope.currentModule!='General Ledger'} || #{pageFlowScope.currentModule!='Assets'} || #{pageFlowScope.currentModule!='Inventory'}"
+                                   valueChangeListener="#{pageFlowScope.DashboardBean.subModuleValueChange}">
                 <amx:selectItem id="si8" label="Choose OU"/>
                 <amx:selectItems value="#{bindings.OU.items}" id="si7"/>
               </amx:selectOneChoice>
