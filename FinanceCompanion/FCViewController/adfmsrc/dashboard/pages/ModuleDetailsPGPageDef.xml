@@ -63,6 +63,8 @@
         <AttrNames>
           <Item Value="issueText"/>
           <Item Value="issueCount"/>
+          <Item Value="issueCateg"/>
+          <Item Value="module"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

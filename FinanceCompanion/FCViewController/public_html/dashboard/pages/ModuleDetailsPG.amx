@@ -174,12 +174,12 @@
                 <amx:rowLayout id="rl12">
                   <amx:cellFormat width="10px" rowSpan="2" id="cf25"/>
                   <amx:cellFormat width="100%" height="#{deviceScope.device.os=='Android'?'36':'32'}px" id="cf26">
-                    <amx:outputText value="#{row.issueText}" id="ot16" inlineStyle="font-size:small;"/>
+                    <amx:outputText value="#{row.module}" id="ot16" inlineStyle="font-size:small;"/>
                   </amx:cellFormat>
                 </amx:rowLayout>
                 <amx:rowLayout id="rl10">
                   <amx:cellFormat width="100%" height="#{deviceScope.device.os=='Android'?'22':'19'}px" id="cf24">
-                    <amx:outputText value="#{row.issueCount}" styleClass="adfmf-listItem-captionText" id="ot15"
+                    <amx:outputText value="#{row.issueText}" styleClass="adfmf-listItem-captionText" id="ot15"
                                     inlineStyle="font-size:small;"/>
                   </amx:cellFormat>
                 </amx:rowLayout>
