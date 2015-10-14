@@ -14,6 +14,7 @@ import java.util.ArrayList;
 
 import java.util.List;
 
+import oracle.adfmf.amx.event.ActionEvent;
 import oracle.adfmf.amx.event.ValueChangeEvent;
 import oracle.adfmf.framework.api.AdfmfContainerUtilities;
 import oracle.adfmf.framework.api.AdfmfJavaUtilities;
@@ -175,5 +176,10 @@ public class DashboardBean extends SyncUtils {
                 e.getMessage();
             }
         }
+    }
+
+    public void returnFromModuleDetails(ActionEvent actionEvent) {
+        // Add event code here...
+        AdfmfJavaUtilities.setELValue("#{pageFlowScope.currentSubModule}",null);
     }
 }

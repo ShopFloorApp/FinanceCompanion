@@ -195,7 +195,10 @@ public class DashboardDC {
         }
         if(subModule.trim().equals("")){
             for(int i=0;i<=s_dashboardEntity.size();i++){
-                
+                DashboardBO dashBO = (DashboardBO) s_dashboardEntity.get(i);
+                if(dashBO.getModule().equalsIgnoreCase(subModule)){
+                    dashboardList.add(dashBO);
+                }
             }
         }else{
             dashboardList.addAll(s_dashboardEntity);
@@ -207,8 +210,21 @@ public class DashboardDC {
     
     public IssueDetailsBO[] getIssueDetails() {
         List issueList=new ArrayList();
-        issueList.addAll(s_dashboardEntity);
-        IssueDetailsBO[] dashboardIssueDtlsArray = (IssueDetailsBO[]) s_dashboardIssueDtls.toArray(new IssueDetailsBO[s_dashboardIssueDtls.size()]);
+        String subModule = (String) AdfmfJavaUtilities.evaluateELExpression("#{pageFlowScope.currentSubModule}");
+        if (subModule == null) {
+            subModule = "";
+        }
+        if(subModule.trim().equals("")){
+            for(int i=0;i<=s_dashboardIssueDtls.size();i++){
+                IssueDetailsBO dashBO = (IssueDetailsBO) s_dashboardIssueDtls.get(i);
+                if(dashBO.getModule().equalsIgnoreCase(subModule)){
+                    issueList.add(dashBO);
+                }
+            }
+        }else{
+            issueList.addAll(s_dashboardIssueDtls);
+        }
+        IssueDetailsBO[] dashboardIssueDtlsArray = (IssueDetailsBO[]) issueList.toArray(new IssueDetailsBO[issueList.size()]);
         return dashboardIssueDtlsArray;
     }
     
