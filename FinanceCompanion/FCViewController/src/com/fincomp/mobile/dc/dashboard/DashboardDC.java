@@ -10,6 +10,8 @@ import com.fincomp.mobile.utility.RestURI;
 import java.util.ArrayList;
 import java.util.List;
 
+import oracle.adfmf.framework.api.AdfmfJavaUtilities;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -44,6 +46,7 @@ public class DashboardDC {
         System.out.println("Calling create method");
         String jsonArrayAsString = rcu.invokeUPDATE(restURI, payload);
         System.out.println("Received response");
+        String rowModuleName="";
         if (jsonArrayAsString != null) {
             JSONObject jsObject1 = null;
             try {
@@ -69,16 +72,32 @@ public class DashboardDC {
                         dashboardItems.setLedger((jsObject2.get("LEDGER").toString()));
                         dashboardItems.setOU((jsObject2.get("OU").toString()));
                         dashboardItems.setInvOrg((jsObject2.get("INVORG").toString()));
+                        dashboardItems.setFaBook((jsObject2.get("FABOOK").toString()));
                         dashboardItems.setOwner((jsObject2.get("OWNER").toString()));
                         dashboardItems.setStatus((jsObject2.get("STATUS").toString()));
                         dashboardItems.setIssueCount(Integer.parseInt((jsObject2.get("ISSUECOUNT").toString())));
-                        dashboardItems.setModule((jsObject2.get("MODULE").toString()));
-
+//                        dashboardItems.setModule((jsObject2.get("MODULE").toString()));                        
+                        
+                        if(pModule.equalsIgnoreCase("DASHBOARD") || pModule.equalsIgnoreCase("GL")){
+                            rowModuleName=jsObject2.get("MODULE").toString();
+                        }else{
+                            String moduleName=jsObject2.get("MODULE").toString();
+                            if(moduleName.equalsIgnoreCase("Inventory")){
+                                rowModuleName=jsObject2.get("INVORG").toString();
+                            }else if(moduleName.equalsIgnoreCase("Asset")){
+                                rowModuleName=jsObject2.get("FABOOK").toString();
+                            }else if(moduleName.equalsIgnoreCase("General Ledger")){
+                                rowModuleName=jsObject2.get("LEDGER").toString();
+                            }else{
+                                rowModuleName=jsObject2.get("OU").toString();
+                            }
+                        }
+                        
+                        dashboardItems.setModule(rowModuleName);
                         s_dashboardEntity.add(dashboardItems);
-                        s_dashboardIssueDtls.addAll(getIssueDetails((JSONObject) jsObject2.get("DTLS"),
-                                                                 (jsObject2.get("MODULE").toString())));
-                        s_dashboardIssueSumm.addAll(getIssueDetails((JSONObject) jsObject2.get("SUMMARY"),
-                                                                 (jsObject2.get("MODULE").toString())));
+                        
+                        s_dashboardIssueDtls.addAll(getIssueDetails((JSONObject) jsObject2.get("DTLS"),rowModuleName));
+                        s_dashboardIssueSumm.addAll(getIssueDetails((JSONObject) jsObject2.get("SUMMARY"),rowModuleName));
                     }
 
                 }
@@ -90,16 +109,34 @@ public class DashboardDC {
                     dashboardItems.setLedger((jsObject2.get("LEDGER").toString()));
                     dashboardItems.setOU((jsObject2.get("OU").toString()));
                     dashboardItems.setInvOrg((jsObject2.get("INVORG").toString()));
+                    dashboardItems.setFaBook((jsObject2.get("FABOOK").toString()));
                     dashboardItems.setOwner((jsObject2.get("OWNER").toString()));
                     dashboardItems.setStatus((jsObject2.get("STATUS").toString()));
                     dashboardItems.setIssueCount(Integer.parseInt((jsObject2.get("ISSUECOUNT").toString())));
                     dashboardItems.setModule((jsObject2.get("MODULE").toString()));
 
+                    
+                    
+                    if(pModule.equalsIgnoreCase("DASHBOARD") || pModule.equalsIgnoreCase("GL")){
+                        rowModuleName=jsObject2.get("MODULE").toString();
+                    }else{
+                        String moduleName=jsObject2.get("MODULE").toString();
+                        if(moduleName.equalsIgnoreCase("Inventory")){
+                            rowModuleName=jsObject2.get("INVORG").toString();
+                        }else if(moduleName.equalsIgnoreCase("Asset")){
+                            rowModuleName=jsObject2.get("FABOOK").toString();
+                        }else if(moduleName.equalsIgnoreCase("General Ledger")){
+                            rowModuleName=jsObject2.get("LEDGER").toString();
+                        }else{
+                            rowModuleName=jsObject2.get("OU").toString();
+                        }
+                    }
+                    
+                    dashboardItems.setModule(rowModuleName);
                     s_dashboardEntity.add(dashboardItems);
-                    s_dashboardIssueDtls.addAll(getIssueDetails((JSONObject) jsObject2.get("DTLS"),
-                                                             (jsObject2.get("MODULE").toString())));
-                    s_dashboardIssueSumm.addAll(getIssueDetails((JSONObject) jsObject2.get("SUMMARY"),
-                                                             (jsObject2.get("MODULE").toString())));
+                    
+                    s_dashboardIssueDtls.addAll(getIssueDetails((JSONObject) jsObject2.get("DTLS"),rowModuleName));
+                    s_dashboardIssueSumm.addAll(getIssueDetails((JSONObject) jsObject2.get("SUMMARY"),rowModuleName));
 
                 }
             } catch (ParseException e) {
@@ -123,8 +160,7 @@ public class DashboardDC {
 
                     dashboardIssueItems.setIssueCateg((jsObject2.get("ISSUECATEG").toString()));
                     dashboardIssueItems.setIssueText((jsObject2.get("ISSUETEXT").toString()));
-                    dashboardIssueItems.setModule((jsObject2.get("MODULE").toString().contains("@xsi:nil") ? pModule :
-                                                   jsObject2.get("MODULE").toString()));
+                    dashboardIssueItems.setModule(pModule);
                     dashboardIssueItems.setIssueCount((jsObject2.get("ISSUECOUNT").toString()));
 
                     issueDtlsList.add(dashboardIssueItems);
@@ -152,11 +188,26 @@ public class DashboardDC {
     }
     
     public DashboardBO[] getDashboardDetails() {
-        DashboardBO[] dashboardArray = (DashboardBO[]) s_dashboardEntity.toArray(new DashboardBO[s_dashboardEntity.size()]);
+        List dashboardList=new ArrayList();
+        String subModule = (String) AdfmfJavaUtilities.evaluateELExpression("#{pageFlowScope.currentSubModule}");
+        if (subModule == null) {
+            subModule = "";
+        }
+        if(subModule.trim().equals("")){
+            for(int i=0;i<=s_dashboardEntity.size();i++){
+                
+            }
+        }else{
+            dashboardList.addAll(s_dashboardEntity);
+        }
+        DashboardBO[] dashboardArray = (DashboardBO[]) dashboardList.toArray(new DashboardBO[dashboardList.size()]);
+        AdfmfJavaUtilities.setELValue("#{pageFlowScope.moduleCount}", dashboardList.size());
         return dashboardArray;
     }
     
     public IssueDetailsBO[] getIssueDetails() {
+        List issueList=new ArrayList();
+        issueList.addAll(s_dashboardEntity);
         IssueDetailsBO[] dashboardIssueDtlsArray = (IssueDetailsBO[]) s_dashboardIssueDtls.toArray(new IssueDetailsBO[s_dashboardIssueDtls.size()]);
         return dashboardIssueDtlsArray;
     }

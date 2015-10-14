@@ -101,12 +101,13 @@
               <amx:rowLayout id="rl7">
                 <amx:cellFormat width="10px" rowSpan="2" id="cf16"/>
                 <amx:cellFormat width="100%" height="#{deviceScope.device.os=='Android'?'36':'32'}px" id="cf15">
-                  <amx:outputText value="#{row.issueText}" id="ot5"/>
+                  <amx:outputText value="#{row.issueText}" id="ot5" inlineStyle="font-size:small;"/>
                 </amx:cellFormat>
               </amx:rowLayout>
               <amx:rowLayout id="rl6">
                 <amx:cellFormat width="100%" height="#{deviceScope.device.os=='Android'?'22':'19'}px" id="cf14">
-                  <amx:outputText value="#{row.issueCount}" styleClass="adfmf-listItem-captionText" id="ot4"/>
+                  <amx:outputText value="#{row.issueCount}" styleClass="adfmf-listItem-captionText" id="ot4"
+                                  inlineStyle="font-size:small;"/>
                 </amx:cellFormat>
               </amx:rowLayout>
             </amx:tableLayout>

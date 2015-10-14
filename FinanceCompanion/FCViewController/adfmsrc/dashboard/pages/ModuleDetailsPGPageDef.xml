@@ -5,6 +5,9 @@
   <executables>
     <variableIterator id="variables">
       <variable Name="ledgerLovVar" Type="java.lang.String"/>
+      <variable Name="operatingUnitLovVar" Type="java.lang.String"/>
+      <variable Name="fixedAssetLovVar" Type="java.lang.String"/>
+      <variable Name="invOrgLovVar" Type="java.lang.String"/>
     </variableIterator>
     <iterator Binds="root" RangeSize="25" DataControl="LedgerDC" id="LedgerDCIterator"/>
     <accessorIterator MasterBinding="LedgerDCIterator" Binds="ledger" RangeSize="-1" DataControl="LedgerDC"
@@ -15,6 +18,15 @@
                       id="dashboardDetailsIterator"/>
     <accessorIterator MasterBinding="DashboardDCIterator" Binds="issueDetails" RangeSize="25" DataControl="DashboardDC"
                       BeanClass="com.fincomp.mobile.pojo.dashboard.IssueDetailsBO" id="issueDetailsIterator"/>
+    <iterator Binds="root" RangeSize="25" DataControl="FABookDC" id="FABookDCIterator"/>
+    <accessorIterator MasterBinding="FABookDCIterator" Binds="FABook" RangeSize="-1" DataControl="FABookDC"
+                      BeanClass="com.fincomp.mobile.pojo.lov.FABookBO" id="FABookIterator"/>
+    <iterator Binds="root" RangeSize="25" DataControl="InventoryOrgDC" id="InventoryOrgDCIterator"/>
+    <accessorIterator MasterBinding="InventoryOrgDCIterator" Binds="invOrg" RangeSize="-1" DataControl="InventoryOrgDC"
+                      BeanClass="com.fincomp.mobile.pojo.lov.InventoryOrgBO" id="invOrgIterator"/>
+    <iterator Binds="root" RangeSize="25" DataControl="OUDC" id="OUDCIterator"/>
+    <accessorIterator MasterBinding="OUDCIterator" Binds="OU" RangeSize="-1" DataControl="OUDC"
+                      BeanClass="com.fincomp.mobile.pojo.lov.OUBO" id="OUIterator"/>
   </executables>
   <bindings>
     <list IterBinding="variables" id="ledger" DTSupportsMRU="true" SelectItemValueMode="ListObject"
@@ -42,6 +54,7 @@
           <Item Value="module"/>
           <Item Value="OU"/>
           <Item Value="status"/>
+          <Item Value="faBook"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -53,5 +66,47 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <list IterBinding="variables" id="FABookName" DTSupportsMRU="true" SelectItemValueMode="ListObject"
+          StaticList="false" ListIter="FABookIterator"
+          NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+          NullValueFlag="end">
+      <AttrNames>
+        <Item Value="fixedAssetLovVar"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="FABookName"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="FABookName"/>
+      </ListDisplayAttrNames>
+    </list>
+    <list IterBinding="variables" id="orgName" DTSupportsMRU="true" SelectItemValueMode="ListObject"
+          StaticList="false" ListIter="invOrgIterator"
+          NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+          NullValueFlag="start">
+      <AttrNames>
+        <Item Value="invOrgLovVar"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="orgName"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="orgName"/>
+      </ListDisplayAttrNames>
+    </list>
+    <list IterBinding="variables" id="OU" DTSupportsMRU="true" SelectItemValueMode="ListObject" StaticList="false"
+          ListIter="OUIterator"
+          NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+          NullValueFlag="start">
+      <AttrNames>
+        <Item Value="operatingUnitLovVar"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="OU"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="OU"/>
+      </ListDisplayAttrNames>
+    </list>
   </bindings>
 </pageDefinition>

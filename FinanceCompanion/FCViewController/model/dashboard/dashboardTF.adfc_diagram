@@ -112,7 +112,7 @@
       <property
          name="fromOutcome">self</property>
       <property
-         name="sdm:polyPoints">T44,530.5,263.84473,537.5,263.84473,T56</property>
+         name="sdm:polyPoints">T39,527.0,263.84473,534.0,263.84473,T50</property>
    </ControlFlowCase>
    <View
       id="View11">

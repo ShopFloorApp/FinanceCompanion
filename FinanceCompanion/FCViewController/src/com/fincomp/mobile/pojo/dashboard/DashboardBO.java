@@ -8,6 +8,7 @@ public class DashboardBO {
     private String Ledger;
     private String OU;
     private String InvOrg;
+    private String faBook;
     private String Owner;
     private String Status;
     private String Module;
@@ -16,6 +17,16 @@ public class DashboardBO {
 
     public DashboardBO() {
         super();
+    }
+
+    public void setFaBook(String faBook) {
+        String oldFaBook = this.faBook;
+        this.faBook = faBook;
+        propertyChangeSupport.firePropertyChange("faBook", oldFaBook, faBook);
+    }
+
+    public String getFaBook() {
+        return faBook;
     }
 
     public void setIssueCount(int IssueCount) {

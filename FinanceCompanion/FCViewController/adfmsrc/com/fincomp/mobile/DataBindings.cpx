@@ -20,6 +20,9 @@
     <page id="com_fincomp_mobile_ModuleDetailsPGPageDef" path="dashboard.pages.ModuleDetailsPGPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
+    <dc id="OUDC" path="com.fincomp.mobile.OUDC"/>
+    <dc id="InventoryOrgDC" path="com.fincomp.mobile.InventoryOrgDC"/>
+    <dc id="FABookDC" path="com.fincomp.mobile.FABookDC"/>
     <dc id="LedgerDC" path="com.fincomp.mobile.LedgerDC"/>
     <dc id="DashboardDC" path="com.fincomp.mobile.DashboardDC"/>
     <dc id="EntityDC" path="com.fincomp.mobile.EntityDC"/>
