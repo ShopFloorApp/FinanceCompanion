@@ -17,6 +17,7 @@
               <amx:transition triggerType="forwardNavigate" id="t1" transition="flipRight"/>
             </amx:deck>
           </amx:cellFormat>
+          <amx:cellFormat id="cf17" width="50px"/>
           <amx:cellFormat id="cf2" valign="bottom" width="70%" halign="center">
                         <amx:outputText value="Statistics" id="ot1" inlineStyle="color: white; font-weight: bold;"/>
                     </amx:cellFormat>
@@ -50,8 +51,8 @@
         <amx:tableLayout id="tl6" width="100%">
           <amx:rowLayout id="rl11">
             <amx:cellFormat id="cf28" width="10px" columnSpan="1"/>
-            <amx:cellFormat id="cf27" width="100%" inlineStyle="border-bottom: 1px solid Blue;">
-              <amx:outputText value="Status" id="ot8" inlineStyle="color:Blue;"/>
+            <amx:cellFormat id="cf27" width="100%" inlineStyle="border-bottom: 1px solid rgb(0,39,118);">
+              <amx:outputText value="Status" id="ot8" inlineStyle="color:rgb(0,39,118);"/>
             </amx:cellFormat>
             <amx:cellFormat id="cf7" width="10px"/>
           </amx:rowLayout>
@@ -107,7 +108,7 @@
               <amx:outputText value="Entity with close issues" id="ot6"
                               inlineStyle="font-size:small; font-weight:bold;color:Grey;"/>
             </amx:cellFormat>
-            <amx:cellFormat id="cf17" width="40%" halign="center" inlineStyle="border-bottom: 4px solid rgb(192,0,0);">
+            <amx:cellFormat id="cf38" width="40%" halign="center" inlineStyle="border-bottom: 4px solid rgb(192,0,0);">
               <amx:outputText value="#{pageFlowScope.closeIssues}" id="ot7"
                               inlineStyle="font-size:large; font-weight:bold; color:rgb(192,0,0);"/>
             </amx:cellFormat>
@@ -124,8 +125,8 @@
         <amx:tableLayout id="tl7" width="100%">
           <amx:rowLayout id="rl13">
             <amx:cellFormat id="cf11" width="10px" columnSpan="1"/>
-            <amx:cellFormat id="cf15" width="100%" inlineStyle="border-bottom: 1px solid Blue;">
-              <amx:outputText value="Top Entities with close issues" id="ot9" inlineStyle="color:Blue;"/>
+            <amx:cellFormat id="cf15" width="100%" inlineStyle="border-bottom: 1px solid rgb(0,39,118);">
+              <amx:outputText value="Top Entities with close issues" id="ot9" inlineStyle="color:rgb(0,39,118);"/>
             </amx:cellFormat>
             <amx:cellFormat id="cf30" width="10px"/>
           </amx:rowLayout>
@@ -143,8 +144,8 @@
         <amx:tableLayout id="tl8" width="100%">
           <amx:rowLayout id="rl14">
             <amx:cellFormat id="cf31" width="10px" columnSpan="1"/>
-            <amx:cellFormat id="cf32" width="100%" inlineStyle="border-bottom: 1px solid Blue;">
-              <amx:outputText value="Top Close issues" id="ot10" inlineStyle="color:Blue;"/>
+            <amx:cellFormat id="cf32" width="100%" inlineStyle="border-bottom: 1px solid rgb(0,39,118);">
+              <amx:outputText value="Top Close issues" id="ot10" inlineStyle="color:rgb(0,39,118);"/>
             </amx:cellFormat>
             <amx:cellFormat id="cf33" width="10px"/>
           </amx:rowLayout>

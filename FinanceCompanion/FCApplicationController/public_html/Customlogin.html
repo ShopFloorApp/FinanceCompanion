@@ -18,9 +18,9 @@
         padding: 0;
         color: #000000;
         background-color: #FFFFFF;
-        background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, Blue), color-stop(77.9%, Blue), color-stop(78%, Blue), color-stop(100%, Blue)); /* For Android 3.x or 2.x we need to use the older webkit gradient syntax */
-        background-image: -webkit-linear-gradient(-90deg, Blue 0%, Blue 77.9%, Blue 78%, Blue 100%);
-        background-image: linear-gradient(180deg, Blue 0%, Blue 77.9%, Blue 78%, Blue 100%);
+        background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgb(0,39,118)), color-stop(77.9%, rgb(0,39,118)), color-stop(78%, rgb(0,39,118)), color-stop(100%, rgb(0,39,118))); /* For Android 3.x or 2.x we need to use the older webkit gradient syntax */
+        background-image: -webkit-linear-gradient(-90deg, rgb(0,39,118) 0%, rgb(0,39,118) 77.9%, rgb(0,39,118) 78%, rgb(0,39,118) 100%);
+        background-image: linear-gradient(180deg, rgb(0,39,118) 0%, rgb(0,39,118) 77.9%, rgb(0,39,118) 78%, rgb(0,39,118) 100%);
         background-repeat: no-repeat;
         background-size: 100% 239px;
         background-position: 0 0;
@@ -253,7 +253,7 @@
         padding: 0px 10px;
         border-radius: 5px;
         border-width: 0;
-        background-color: #0572CE;
+        background-color: rgb(0,39,118);
         color: #FFFFFF;
       }
       .commandButton.login-selected {
@@ -579,7 +579,7 @@
   </head>
   <body id="mainBody">
     <div id="bodyPage">
-      <div class="login-panelPage-header" id="message" style="color:Blue;">Month End Dashboard</div>
+      <div class="login-panelPage-header" id="message" style="color:rgb(0,39,118);">Month End Dashboard</div>
       <form name="login" onsubmit="return handleSubmit()">
         <div class="error-panelFormLayout">
           <label id="oracle_access_error_id" class="error-text"></label>
@@ -607,7 +607,8 @@
           <div id="oracle_access_remember_username_label" class="form-row">
             <input type="checkbox" class="message-text" name="oracle_access_remember_username_id"
                    ontouchstart="pressed(this,true)" ontouchend="pressed(this,false)" ontouchcancel="pressed(this,false)"
-                   id="oracle_access_remember_username_id"></input><label for="oracle_access_remember_username_id">Remember User Name</label>
+                   id="oracle_access_remember_username_id"></input><label for="oracle_access_remember_username_id" style="
+    font-size: 12px;">Remember User Name</label>
           </div>
           <div id="oracle_access_remember_credentials_label" class="form-row">
             <input type="checkbox" class="message-text" name="oracle_access_remember_credentials_id"

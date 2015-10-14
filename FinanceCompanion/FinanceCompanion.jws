@@ -31,7 +31,7 @@
       <hash n="profileDefinitions">
          <hash n="Android1">
             <hash n="android_options">
-               <value n="android_deploy_debug_mode" v="true"/>
+               <value n="android_deploy_debug_mode" v="false"/>
             </hash>
             <hash n="archiveOptions">
                <value n="hasManifest" v="true"/>
@@ -73,6 +73,34 @@
                </list>
             </hash>
             <url n="jarURL" path="deploy/Android1/Android1.jar/"/>
+            <hash n="mnfImageOptions">
+               <list n="deviceTypes">
+                  <hash>
+                     <value n="appIconPath" v="resources/android/analytics-icon.png"/>
+                     <value n="deviceTypeName" v="High Density"/>
+                     <value n="landscapeSplashScreenPath" v="resources/android/High Density landscape.png"/>
+                     <value n="portraitSplashScreenPath" v="resources/android/High Density portrait.png"/>
+                  </hash>
+                  <hash>
+                     <value n="appIconPath" v="resources/android/analytics-icon.png"/>
+                     <value n="deviceTypeName" v="Low Density"/>
+                     <value n="landscapeSplashScreenPath" v="resources/android/Low Density landscape.png"/>
+                     <value n="portraitSplashScreenPath" v="resources/android/Low density portrait.png"/>
+                  </hash>
+                  <hash>
+                     <value n="appIconPath" v="resources/android/analytics-icon.png"/>
+                     <value n="deviceTypeName" v="Extra-High Density"/>
+                     <value n="landscapeSplashScreenPath" v="resources/android/Extra high density landscape.png"/>
+                     <value n="portraitSplashScreenPath" v="resources/android/Extra High Density portrait.png"/>
+                  </hash>
+                  <hash>
+                     <value n="appIconPath" v="resources/android/analytics-icon.png"/>
+                     <value n="deviceTypeName" v="Medium Density"/>
+                     <value n="landscapeSplashScreenPath" v="resources/android/Medium density landscape.png"/>
+                     <value n="portraitSplashScreenPath" v="resources/android/Meduin Density portrait.png"/>
+                  </hash>
+               </list>
+            </hash>
             <value n="profileClass" v="oracle.adfmf.framework.dt.deploy.android.AndroidProfile"/>
             <value n="profileName" v="Android1"/>
          </hash>

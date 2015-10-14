@@ -188,4 +188,9 @@ public class DashboardBean extends SyncUtils {
         String subModule = (String) AdfmfJavaUtilities.evaluateELExpression("#{pageFlowScope.currentSubModule}");
         callButtonActionJS("cb1");
     }
+
+    public void onSubModuleSelection(ActionEvent actionEvent) {
+        // Add event code here...
+        getErrorCounts(dashDC.s_dashboardIssueSumm);
+    }
 }

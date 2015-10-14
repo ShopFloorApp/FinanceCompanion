@@ -145,7 +145,7 @@
     -webkit-border-radius: 10px;
     display: inline-block;
     width: 50px;
-    background: cornflowerblue;
+    background: rgb(0,39,118);
     padding-top: 5px;
     padding-left: 0px;
     padding-right: 0px;
@@ -161,7 +161,7 @@
     display:none;
 }
 .amx-panelPage-header{
-    background-color: darkblue;
+    background-color: rgb(0,39,118);
 }
 
 .springPG .amx-panelPage-content{
@@ -188,4 +188,16 @@
     font-size: small;
     font-weight: bold;
     color: White;
+}
+
+.btncardlyt > .amx-commandButton-label{
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: bold;
+    padding-top: 7px;
+}
+
+.sbimages{
+    height:50%;
+    width:100%;
 }

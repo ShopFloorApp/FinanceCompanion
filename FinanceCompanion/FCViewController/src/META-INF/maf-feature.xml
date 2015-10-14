@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <adfmf:features xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adfmf="http://xmlns.oracle.com/adf/mf">
-  <adfmf:feature id="Sync" name="Sync" securityEnabled="true">
+  <adfmf:feature id="Sync" name="Settings" securityEnabled="true" image="resources/images/Settings.png">
     <adfmf:content id="Sync.1">
       <adfmf:amx file="sync/SyncPG.amx">
         <adfmf:includes>
@@ -9,7 +9,7 @@
       </adfmf:amx>
     </adfmf:content>
   </adfmf:feature>
-  <adfmf:feature id="dashboard" name="Dashboard" securityEnabled="true">
+  <adfmf:feature id="dashboard" name="Dashboard" securityEnabled="true" image="resources/images/dashboard.png">
     <adfmf:content id="dashboard.1">
       <adfmf:amx file="dashboard/dashboardTF.xml#dashboardTF">
         <adfmf:includes>

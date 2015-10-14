@@ -1,29 +1,4 @@
 <References xmlns="http://xmlns.oracle.com/adf/jndi">
-  <Reference name="FinanceComp" className="oracle.adf.model.connection.adfmf.LoginConnection"
-             adfCredentialStoreKey="FinanceComp" partial="false" manageInOracleEnterpriseManager="true"
-             deployable="true" xmlns="">
-    <Factory className="oracle.adf.model.connection.adfmf.LoginConnectionFactory"/>
-    <RefAddresses>
-      <XmlRefAddr addrType="adfmfLogin">
-        <Contents>
-          <login url="http://10.118.32.41:8000/OA_HTML/RF.jsp?function_id=mLogin"/>
-          <logout url="http://10.118.32.41:8000/OA_HTML/RF.jsp?function_id=mLogout"/>
-          <authenticationMode value="hybrid"/>
-          <idleTimeout value="300"/>
-          <sessionTimeout value="28800"/>
-          <maxFailuresBeforeCredentialCleared value="3"/>
-          <rememberCredentials>
-            <enableRememberUserName value="true"/>
-            <rememberUserNameDefault value="true"/>
-            <enableRememberPassword value="false"/>
-            <enableStayLoggedIn value="false"/>
-          </rememberCredentials>
-          <accessControl/>
-          <userObjectFilter/>
-        </Contents>
-      </XmlRefAddr>
-    </RefAddresses>
-  </Reference>
   <Reference name="DCOMFINAPP" className="oracle.adf.model.connection.rest.RestConnection"
              credentialStoreKey="DCOMFINAPP" xmlns="">
     <Factory className="oracle.adf.model.connection.rest.RestConnectionFactory"/>
@@ -39,6 +14,31 @@
       </XmlRefAddr>
       <SecureRefAddr addrType="username"/>
       <SecureRefAddr addrType="password"/>
+    </RefAddresses>
+  </Reference>
+  <Reference name="FinanceComp" className="oracle.adf.model.connection.adfmf.LoginConnection"
+             adfCredentialStoreKey="FinanceComp" partial="false" manageInOracleEnterpriseManager="true"
+             deployable="true" xmlns="">
+    <Factory className="oracle.adf.model.connection.adfmf.LoginConnectionFactory"/>
+    <RefAddresses>
+      <XmlRefAddr addrType="adfmfLogin">
+        <Contents>
+          <login url="http://10.118.32.41:8000/OA_HTML/RF.jsp?function_id=mLogin"/>
+          <logout url="http://10.118.32.41:8000/OA_HTML/RF.jsp?function_id=mLogout"/>
+          <authenticationMode value="hybrid"/>
+          <idleTimeout value="28800"/>
+          <sessionTimeout value="28800"/>
+          <maxFailuresBeforeCredentialCleared value="3"/>
+          <rememberCredentials>
+            <enableRememberUserName value="true"/>
+            <rememberUserNameDefault value="true"/>
+            <enableRememberPassword value="false"/>
+            <enableStayLoggedIn value="false"/>
+          </rememberCredentials>
+          <accessControl/>
+          <userObjectFilter/>
+        </Contents>
+      </XmlRefAddr>
     </RefAddresses>
   </Reference>
 </References>
