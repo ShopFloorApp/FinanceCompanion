@@ -79,7 +79,7 @@ public class DashboardBean extends SyncUtils {
             }
         }
         dashDC.getDashboardDetails((String) AdfmfJavaUtilities.evaluateELExpression("#{pageFlowScope.currentPeriod}"),
-                                   "GL",
+                                   "ENTITY",
                                    (String) AdfmfJavaUtilities.evaluateELExpression("#{pageFlowScope.currentEntity}"));
         callButtonActionJS("cb1");
     }
