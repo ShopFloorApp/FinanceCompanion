@@ -201,3 +201,7 @@
     height:50%;
     width:100%;
 }
+
+.amx-loading{
+    background-image: url("../images/loader.gif");
+}
