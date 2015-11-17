@@ -204,4 +204,5 @@
 
 .amx-loading{
     background-image: url("../images/loader.gif");
+    background-size: 80px 80px;
 }
