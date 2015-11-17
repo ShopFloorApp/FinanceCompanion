@@ -133,16 +133,16 @@
         </amx:tableLayout>
         <dvtm:barChart var="row" value="#{bindings.dashboardDetails.collectionModel}" id="bc1" seriesEffect="gradient"
                        inlineStyle="height:150px;"
-                       rendered="#{pageFlowScope.closeWarnings != 0} || #{pageFlowScope.closeIssues !=0}">
+                       rendered="#{pageFlowScope.closeWarnings != 0 || pageFlowScope.closeIssues != 0}">
           <amx:facet name="dataStamp">
             <dvtm:chartDataItem group="#{row.entity}" value="#{row.issueCount}"
                                 series="#{bindings.dashboardDetails.hints.issueCount.label}" id="cdi1"
-                                label="#{row.issueCount}" rendered="#{row.issueCount>0}"/>
+                                label="#{row.issueCount}" rendered="#{row.issueCount>0}" color="rgb(0,39,118)"/>
           </amx:facet>
           <dvtm:legend rendered="false" id="l1"/>
         </dvtm:barChart>
         <amx:panelGroupLayout id="pgl1" inlineStyle="height:150px;" layout="horizontal"
-                              rendered="#{pageFlowScope.closeWarnings == 0} &amp;&amp; #{pageFlowScope.closeIssues==0}">
+                              rendered="#{pageFlowScope.closeWarnings == 0 &amp;&amp; pageFlowScope.closeIssues==0}">
           <amx:outputText value="No Data to Display" id="ot13"
                           inlineStyle="padding-top: 67px; padding-left: 45%; position: absolute;"/>
         </amx:panelGroupLayout>

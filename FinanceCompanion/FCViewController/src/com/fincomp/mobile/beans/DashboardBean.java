@@ -186,6 +186,7 @@ public class DashboardBean extends SyncUtils {
     public void subModuleValueChange(ValueChangeEvent valueChangeEvent) {
         // Add event code here...
         String subModule = (String) AdfmfJavaUtilities.evaluateELExpression("#{pageFlowScope.currentSubModule}");
+        getErrorCounts(dashDC.s_dashboardIssueSumm);
         callButtonActionJS("cb1");
     }
 

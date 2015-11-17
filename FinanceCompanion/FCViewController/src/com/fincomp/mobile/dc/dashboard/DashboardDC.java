@@ -4,6 +4,7 @@ import com.fincomp.mobile.pojo.dashboard.DashboardBO;
 import com.fincomp.mobile.pojo.dashboard.IssueDetailsBO;
 import com.fincomp.mobile.pojo.lov.EntityBO;
 import com.fincomp.mobile.pojo.lov.LedgerBO;
+import com.fincomp.mobile.utility.AEntity;
 import com.fincomp.mobile.utility.RestCallerUtil;
 import com.fincomp.mobile.utility.RestURI;
 
@@ -21,6 +22,7 @@ public class DashboardDC {
     public static List s_dashboardEntity = new ArrayList();
     public static List s_dashboardIssueDtls = new ArrayList();
     public static List s_dashboardIssueSumm = new ArrayList();
+    AEntity aEntity=new AEntity();
 
     public DashboardDC() {
         super();
@@ -75,16 +77,16 @@ public class DashboardDC {
                         dashboardItems.setFaBook((jsObject2.get("FABOOK").toString()));
                         dashboardItems.setOwner((jsObject2.get("OWNER").toString()));
                         dashboardItems.setStatus((jsObject2.get("STATUS").toString()));
-                        dashboardItems.setIssueCount(Integer.parseInt((jsObject2.get("ISSUECOUNT").toString())));
+                        dashboardItems.setIssueCount(Integer.parseInt(aEntity.getAttributeValueInt((jsObject2.get("ISSUECOUNT").toString()))));
 //                        dashboardItems.setModule((jsObject2.get("MODULE").toString()));                        
                         
-                        if(pModule.equalsIgnoreCase("DASHBOARD") || pModule.equalsIgnoreCase("GL")){
+                        if(pModule.equalsIgnoreCase("DASHBOARD") || pModule.equalsIgnoreCase("ENTITY")){
                             rowModuleName=jsObject2.get("MODULE").toString();
                         }else{
                             String moduleName=jsObject2.get("MODULE").toString();
                             if(moduleName.equalsIgnoreCase("Inventory")){
                                 rowModuleName=jsObject2.get("INVORG").toString();
-                            }else if(moduleName.equalsIgnoreCase("Asset")){
+                            }else if(moduleName.equalsIgnoreCase("Assets")){
                                 rowModuleName=jsObject2.get("FABOOK").toString();
                             }else if(moduleName.equalsIgnoreCase("General Ledger")){
                                 rowModuleName=jsObject2.get("LEDGER").toString();
@@ -112,18 +114,18 @@ public class DashboardDC {
                     dashboardItems.setFaBook((jsObject2.get("FABOOK").toString()));
                     dashboardItems.setOwner((jsObject2.get("OWNER").toString()));
                     dashboardItems.setStatus((jsObject2.get("STATUS").toString()));
-                    dashboardItems.setIssueCount(Integer.parseInt((jsObject2.get("ISSUECOUNT").toString())));
+                    dashboardItems.setIssueCount(Integer.parseInt(aEntity.getAttributeValueInt((jsObject2.get("ISSUECOUNT").toString()))));
                     dashboardItems.setModule((jsObject2.get("MODULE").toString()));
 
                     
                     
-                    if(pModule.equalsIgnoreCase("DASHBOARD") || pModule.equalsIgnoreCase("GL")){
+                    if(pModule.equalsIgnoreCase("DASHBOARD") || pModule.equalsIgnoreCase("ENTITY")){
                         rowModuleName=jsObject2.get("MODULE").toString();
                     }else{
                         String moduleName=jsObject2.get("MODULE").toString();
                         if(moduleName.equalsIgnoreCase("Inventory")){
                             rowModuleName=jsObject2.get("INVORG").toString();
-                        }else if(moduleName.equalsIgnoreCase("Asset")){
+                        }else if(moduleName.equalsIgnoreCase("Assets")){
                             rowModuleName=jsObject2.get("FABOOK").toString();
                         }else if(moduleName.equalsIgnoreCase("General Ledger")){
                             rowModuleName=jsObject2.get("LEDGER").toString();
@@ -147,6 +149,7 @@ public class DashboardDC {
 
     public List getIssueDetails(JSONObject issueDtlsObject, String pModule) {
         List issueDtlsList = new ArrayList();
+        
         try {
             JSONArray array = (JSONArray) issueDtlsObject.get("DTLS_ITEM");
             if (array != null) {
@@ -161,7 +164,7 @@ public class DashboardDC {
                     dashboardIssueItems.setIssueCateg((jsObject2.get("ISSUECATEG").toString()));
                     dashboardIssueItems.setIssueText((jsObject2.get("ISSUETEXT").toString()));
                     dashboardIssueItems.setModule(pModule);
-                    dashboardIssueItems.setIssueCount((jsObject2.get("ISSUECOUNT").toString()));
+                    dashboardIssueItems.setIssueCount(aEntity.getAttributeValueInt((jsObject2.get("ISSUECOUNT").toString())));
 
                     issueDtlsList.add(dashboardIssueItems);
 
@@ -176,7 +179,7 @@ public class DashboardDC {
                 dashboardIssueItems.setIssueText((jsObject2.get("ISSUETEXT").toString()));
                 dashboardIssueItems.setModule((jsObject2.get("MODULE").toString().contains("@xsi:nil") ? pModule :
                                                jsObject2.get("MODULE").toString()));
-                dashboardIssueItems.setIssueCount((jsObject2.get("ISSUECOUNT").toString()));
+                dashboardIssueItems.setIssueCount(aEntity.getAttributeValueInt((jsObject2.get("ISSUECOUNT").toString())));
 
                 issueDtlsList.add(dashboardIssueItems);
 

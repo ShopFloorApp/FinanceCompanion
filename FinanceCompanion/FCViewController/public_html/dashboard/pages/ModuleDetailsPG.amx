@@ -51,7 +51,7 @@
                 <amx:selectItems value="#{bindings.orgName.items}" id="si5"/>
               </amx:selectOneChoice>
               <amx:selectOneChoice value="#{pageFlowScope.currentSubModule}"  id="soc4"
-                                   rendered="#{pageFlowScope.currentModule=='Payables' || pageFlowScope.currentModule=='Purchasing' || pageFlowScope.currentModule!='Receivables' || pageFlowScope.currentModule=='Projects'}"
+                                   rendered="#{pageFlowScope.currentModule=='Payables' || pageFlowScope.currentModule=='Purchasing' || pageFlowScope.currentModule=='Receivables' || pageFlowScope.currentModule=='Projects'}"
                                    valueChangeListener="#{pageFlowScope.DashboardBean.subModuleValueChange}">
                 <amx:selectItem id="si8" label="Choose OU"/>
                 <amx:selectItems value="#{bindings.OU.items}" id="si7"/>

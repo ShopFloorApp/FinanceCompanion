@@ -73,7 +73,8 @@
                   </amx:rowLayout>
                   <amx:rowLayout id="rl3">
                     <amx:cellFormat id="cf10" width="100%" halign="center">
-                      <amx:outputText value="#{row.owner}" id="ot6" inlineStyle="font-size:small; font-weight:bold;"/>
+                      <amx:outputText value="#{row.owner}" id="ot6" inlineStyle="font-size:small; font-weight:bold;"
+                                      rendered="false"/>
                     </amx:cellFormat>
                   </amx:rowLayout>
                 </amx:tableLayout>
@@ -114,6 +115,9 @@
             </amx:tableLayout>
           </amx:listItem>
         </amx:listView>
+         <amx:outputText value="No Data to Display" id="ot14"
+                        rendered="#{bindings.issueDetailsIterator.iterator.totalRowCount == 0}"
+                        inlineStyle="padding-top: 20px; padding-left: 45%; position: absolute;"/>
       </amx:facet>
     </amx:panelStretchLayout>
   </amx:panelPage>

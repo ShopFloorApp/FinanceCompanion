@@ -1,5 +1,7 @@
 package com.fincomp.mobile.pojo.dashboard;
 
+import com.fincomp.mobile.utility.AEntity;
+
 import oracle.adfmf.java.beans.PropertyChangeListener;
 import oracle.adfmf.java.beans.PropertyChangeSupport;
 
@@ -10,6 +12,7 @@ public class IssueDetailsBO {
     private String Module;
     private String IssueCount;
     private PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
+    
 
     public IssueDetailsBO() {
         super();
