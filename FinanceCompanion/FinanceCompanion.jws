@@ -99,6 +99,16 @@
                      <value n="landscapeSplashScreenPath" v="resources/android/Medium density landscape.png"/>
                      <value n="portraitSplashScreenPath" v="resources/android/Meduin Density portrait.png"/>
                   </hash>
+                  <hash>
+                     <value n="appIconPath" v="resources/android/analytics-icon.png"/>
+                     <value n="deviceTypeName" v="Extra-Extra-Extra-High Density"/>
+                  </hash>
+                  <hash>
+                     <value n="appIconPath" v="resources/android/analytics-icon.png"/>
+                     <value n="deviceTypeName" v="Extra-Extra-High Density"/>
+                     <value n="landscapeSplashScreenPath" v="resources/android/Extra high density landscape.png"/>
+                     <value n="portraitSplashScreenPath" v="resources/android/Extra High Density portrait.png"/>
+                  </hash>
                </list>
             </hash>
             <value n="profileClass" v="oracle.adfmf.framework.dt.deploy.android.AndroidProfile"/>
