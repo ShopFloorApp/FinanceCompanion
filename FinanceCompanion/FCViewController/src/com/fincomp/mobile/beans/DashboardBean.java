@@ -34,7 +34,9 @@ public class DashboardBean extends SyncUtils {
 
     public void initializaDashboardAction() {
         // Code for running background process
-        AdfmfJavaUtilities.setELValue("#{pageFlowScope.currentEntityOwner}", null);
+        AdfmfJavaUtilities.setELValue("#{pageFlowScope.currentEntityOwner}", null);  
+        AdfmfJavaUtilities.setELValue("#{pageFlowScope.currOwnerEmailId}", null);
+        AdfmfJavaUtilities.setELValue("#{pageFlowScope.currOwnerPhoneNo}", null);
         AdfmfJavaUtilities.setELValue("#{pageFlowScope.currentEntity}", null);
         int noCloseIssue = 0;
         int closeWarning = 0;
@@ -74,7 +76,9 @@ public class DashboardBean extends SyncUtils {
             EntityBO entityBO = (EntityBO) dash.get(i);
             if (entityBO.getEntityName().equals(entityName)) {
                 String owner = entityBO.getOwner();
-                AdfmfJavaUtilities.setELValue("#{pageFlowScope.currentEntityOwner}", owner);
+                AdfmfJavaUtilities.setELValue("#{pageFlowScope.currentEntityOwner}", owner);  
+                AdfmfJavaUtilities.setELValue("#{pageFlowScope.currOwnerEmailId}", entityBO.getEmail());
+                AdfmfJavaUtilities.setELValue("#{pageFlowScope.currOwnerPhoneNo}", entityBO.getPhone());
                 break;
             }
         }
@@ -193,5 +197,18 @@ public class DashboardBean extends SyncUtils {
     public void onSubModuleSelection(ActionEvent actionEvent) {
         // Add event code here...
         getErrorCounts(dashDC.s_dashboardIssueSumm);
+    }
+
+    public String drillDownToModule() {
+        // Add event code here...
+        getModuleInfo();
+        return null;
+    }
+    
+    public void handleNavigation() {
+        //Code to naviagte within task flows programmatically
+        AdfmfContainerUtilities.invokeContainerJavaScriptFunction(AdfmfJavaUtilities.getFeatureName(),
+                                                                  "adf.mf.api.amx.doNavigation",
+                                                                  new Object[] { "back" });
     }
 }

@@ -6,11 +6,12 @@
             <amx:tableLayout id="tl1" width="100%">
         <amx:rowLayout id="rl1">
           <amx:cellFormat id="cf3" width="10px" halign="center" valign="middle"/>
-          <amx:cellFormat id="cf1" halign="center" valign="bottom" width="20px">
+          <amx:cellFormat id="cf1" halign="start" valign="bottom" width="20%">
                 <amx:commandLink id="cl2" action="back"
                                  actionListener="#{pageFlowScope.DashboardBean.returnFromModuleDetails}">
                 <amx:outputHtml id="oh3" styleClass="fa fa-arrow-circle-o-left fa-lg" inlineStyle="color: white;"/>
-              </amx:commandLink>
+              <amx:spacer id="s7" width="20"/>
+            </amx:commandLink>
           </amx:cellFormat>
           <amx:cellFormat id="cf17" width="50px"/>
           <amx:cellFormat id="cf2" valign="bottom" width="70%" halign="center">

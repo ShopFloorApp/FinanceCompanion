@@ -206,3 +206,10 @@
     background-image: url("../images/loader.gif");
     background-size: 80px 80px;
 }
+
+*:focus {
+    outline: none;
+    outline-style:none;
+    box-shadow:none;
+    border-color:transparent;
+   }

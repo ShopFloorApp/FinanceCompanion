@@ -102,7 +102,7 @@
       <property
          name="fromOutcome">initializeDash</property>
       <property
-         name="sdm:polyPoints">T50,69.0,274.24707,275.0,132.84473,B39</property>
+         name="sdm:polyPoints">T50,69.0,273.5459,275.0,132.84473,B39</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -147,7 +147,7 @@
       <property
          name="fromOutcome">self</property>
       <property
-         name="sdm:polyPoints">T44,753.5,261.84473,760.5,261.84473,T56</property>
+         name="sdm:polyPoints">T39,750.0,261.84473,757.0,261.84473,T50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall14">

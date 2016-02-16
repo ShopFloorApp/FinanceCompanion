@@ -14,6 +14,7 @@
       <adfmf:amx file="dashboard/dashboardTF.xml#dashboardTF">
         <adfmf:includes>
           <adfmf:include type="JavaScript" file="resources/js/customEvent.js" id="i2"/>
+          <adfmf:include type="JavaScript" file="resources/js/DeviceBackButton.js" id="i3"/>
         </adfmf:includes>
       </adfmf:amx>
     </adfmf:content>

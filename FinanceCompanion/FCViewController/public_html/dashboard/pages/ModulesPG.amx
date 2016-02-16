@@ -6,10 +6,11 @@
             <amx:tableLayout id="tl1" width="100%">
         <amx:rowLayout id="rl1">
           <amx:cellFormat id="cf3" width="10px" halign="center" valign="middle"/>
-          <amx:cellFormat id="cf1" halign="center" valign="bottom" width="20px">
+          <amx:cellFormat id="cf1" halign="start" valign="bottom" width="20%">
                 <amx:commandLink id="cl2" action="back">
                 <amx:outputHtml id="oh3" styleClass="fa fa-arrow-circle-o-left fa-lg" inlineStyle="color: white;"/>
-              </amx:commandLink>
+              <amx:spacer id="s4" width="20"/>
+            </amx:commandLink>
           </amx:cellFormat>
           <amx:cellFormat id="cf17" width="50px"/>
           <amx:cellFormat id="cf2" valign="bottom" width="70%" halign="center">
@@ -47,6 +48,11 @@
             <amx:cellFormat id="cf27" width="100%" inlineStyle="border-bottom: 1px solid rgb(0,39,118);">
               <amx:outputText value="#{pageFlowScope.currentEntity} : #{pageFlowScope.currentEntityOwner}" id="ot8"
                               inlineStyle="color:rgb(0,39,118);"/>
+              <amx:spacer id="s5" width="5"/>
+              <amx:goLink id="gl1"
+                          url="tel:#{pageFlowScope.currOwnerPhoneNo}" styleClass="fa fa-phone-square fa-2x"/>
+              <amx:spacer id="s6" width="5"/>
+              <amx:goLink id="gl2" url="mailto:#{pageFlowScope.currOwnerEmailId}" styleClass="fa fa-envelope fa-2x"/>
             </amx:cellFormat>
             <amx:cellFormat id="cf7" width="10px"/>
           </amx:rowLayout>

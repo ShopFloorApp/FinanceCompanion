@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
           xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
-  <amx:panelPage id="pp1">
+  <amx:panelPage id="pp2">
         <amx:facet name="header">
             <amx:tableLayout id="tl1" width="100%">
         <amx:rowLayout id="rl1">
           <amx:cellFormat id="cf3" width="10px" halign="center" valign="middle"/>
-          <amx:cellFormat id="cf1" halign="center" valign="bottom" width="20px">
+          <amx:cellFormat id="cf1" halign="start" valign="bottom" width="20%">
             <amx:deck id="d1" displayedChild="#{applicationScope.isSpringboardVisible != 'Y' ? 'cl3' : 'cl2'}">
               <amx:commandLink id="cl3" actionListener="#{ApplicationBean.gotoSpringboard}">
                 <amx:outputHtml id="oh2" styleClass="fa fa-bars fa-lg" inlineStyle="color: white;"/>
+                <amx:spacer id="s5" width="20"/>
               </amx:commandLink>
                 <amx:commandLink id="cl2" actionListener="#{ApplicationBean.closeSpringBoard}">
                 <amx:outputHtml id="oh3" styleClass="fa fa-arrow-circle-o-left fa-lg" inlineStyle="color: white;"/>
+                <amx:spacer id="s6" width="20"/>
               </amx:commandLink>
               <amx:transition triggerType="forwardNavigate" id="t1" transition="flipRight"/>
             </amx:deck>
@@ -137,7 +139,10 @@
           <amx:facet name="dataStamp">
             <dvtm:chartDataItem group="#{row.entity}" value="#{row.issueCount}"
                                 series="#{bindings.dashboardDetails.hints.issueCount.label}" id="cdi1"
-                                label="#{row.issueCount}" rendered="#{row.issueCount>0}" color="rgb(0,39,118)"/>
+                                label="#{row.issueCount}" rendered="#{row.issueCount>0}" color="rgb(0,39,118)"
+                                action="#{pageFlowScope.DashboardBean.drillDownToModule}">
+              <amx:setPropertyListener id="spl1" to="#{pageFlowScope.currentEntity}" from="#{row.entity}"/>
+            </dvtm:chartDataItem>
           </amx:facet>
           <dvtm:legend rendered="false" id="l1"/>
         </dvtm:barChart>

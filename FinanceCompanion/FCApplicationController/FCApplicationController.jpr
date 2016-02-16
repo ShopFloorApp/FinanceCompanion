@@ -18,7 +18,7 @@
       <value n="oracle.adfdtinternal.view.rich.binding.migration.JarResourceMigrator" v="11.1.1.1.0"/>
       <value n="oracle.adfdtinternal.view.rich.migration.ComponentIdNodeMigratorHelper" v="11.1.1.1.0.01"/>
       <value n="oracle.adfdtinternal.view.rich.migration.FacesLibraryVersionMigrator" v="11.1.1.1.0.1"/>
-      <value n="oracle.adfmf.framework.dt.migration.ApplicationMigrator" v="12.1.3.1.0.2.1.3.0.0;12.1.3.1.0.2.2.0.0.0"/>
+      <value n="oracle.adfmf.framework.dt.migration.ApplicationMigrator" v="12.1.3.1.0.2.1.3.0.0;12.1.3.1.0.2.2.0.0.0;12.1.3.1.0.2.2.1.0.0"/>
       <value n="oracle.ide.model.Project" v="12.1.3.0.0"/>
       <value n="oracle.ide.model.ResourcePathsMigrator" v="11.1.1.1.0"/>
       <value n="oracle.ideimpl.model.TechnologyScopeUpdateMigrator" v="11.1.2.0.0.5"/>
@@ -227,9 +227,9 @@
    </hash>
    <hash n="oracle.jdevimpl.config.JProjectLibraries">
       <hash n="jdkReference">
-         <value n="id" v="MAF JDK 1.8 Compact 2 Profile"/>
+         <url n="id" path="../../../../../../../../Users/kauspatel/.jdeveloper/system12.1.3.0.41.140521.1008/o.jdeveloper.12.1.3.1.41.160201.201/MAF JDK 1.8 Compact 2 Profile.jdk"/>
          <value n="isJDK" v="true"/>
-         <value n="jdkVersion" v="1.8.0_31"/>
+         <value n="jdkVersion" v="1.8.0_73"/>
       </hash>
    </hash>
    <hash n="oracle.jdevimpl.config.JProjectPaths">
