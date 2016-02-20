@@ -45,14 +45,14 @@
         <amx:tableLayout id="tl6" width="100%">
           <amx:rowLayout id="rl11">
             <amx:cellFormat id="cf28" width="10px" columnSpan="1"/>
-            <amx:cellFormat id="cf27" width="100%" inlineStyle="border-bottom: 1px solid rgb(0,39,118);">
-              <amx:outputText value="#{pageFlowScope.currentEntity} : #{pageFlowScope.currentEntityOwner}" id="ot8"
+            <amx:cellFormat id="cf27" width="70%" inlineStyle="border-bottom: 1px solid rgb(0,39,118);">
+              <amx:outputText value="#{pageFlowScope.currentEntityOwner}" id="ot8"
                               inlineStyle="color:rgb(0,39,118);"/>
-              <amx:spacer id="s5" width="5"/>
-              <amx:goLink id="gl1"
-                          url="tel:#{pageFlowScope.currOwnerPhoneNo}" styleClass="fa fa-phone-square fa-2x"/>
-              <amx:spacer id="s6" width="5"/>
-              <amx:goLink id="gl2" url="mailto:#{pageFlowScope.currOwnerEmailId}" styleClass="fa fa-envelope fa-2x"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="cf18" halign="end" width="30%" inlineStyle="border-bottom: 1px solid rgb(0,39,118);">
+              <amx:goLink id="gl1" url="tel:#{pageFlowScope.currOwnerPhoneNo}" styleClass="fa fa-phone-square fa-lg"/>
+              <amx:spacer id="s6" width="15"/>
+              <amx:goLink id="gl2" url="mailto:#{pageFlowScope.currOwnerEmailId}" styleClass="fa fa-envelope fa-lg"/>
             </amx:cellFormat>
             <amx:cellFormat id="cf7" width="10px"/>
           </amx:rowLayout>
